@@ -317,6 +317,7 @@ export default {
   display: flex;
   gap: 3rem;
   margin-top: 3.8rem;
+  align-items: flex-start;
 }
 
 .checkout-form {

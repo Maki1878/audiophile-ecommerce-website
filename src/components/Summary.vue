@@ -20,14 +20,14 @@
       <span class="amount">$ {{ shipping }}</span>
     </div>
     <div class="d-flex">
-      <spa class="title" n>VAT</spa>
+      <span class="title" n>VAT</span>
       <span class="amount">$ {{ valueAddedTax }}</span>
     </div>
     <div class="d-flex grand-total">
       <span class="title">GRAND TOTAL</span>
       <span class="grand-total-amount amount">$ {{ grandTotal }}</span>
     </div>
-    <button @click="$emit('show-modal')">CONTINUE and PAY</button>
+    <BaseButton @click="$emit('show-modal')" class="pay-button">COUNTINUE &#38; PAY</BaseButton>
   </div>
 </template>
 
@@ -90,5 +90,9 @@ export default {
 
 .grand-total-amount {
   color: var(--color-orange-dark);
+}
+
+.pay-button {
+  width: 100%;
 }
 </style>
