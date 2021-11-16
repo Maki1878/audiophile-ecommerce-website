@@ -316,6 +316,7 @@ export default {
 .checkout-container {
   display: flex;
   gap: 3rem;
+  margin-top: 3.8rem;
 }
 
 .checkout-form {
@@ -323,7 +324,7 @@ export default {
   background-color: var(--color-white);
   border-radius: 8px;
   padding: 5.4rem 4.8rem 4.8rem 4.8rem;
-  margin-top: 3.8rem;
+  margin-bottom: 14.1rem;
 }
 
 .subtitle {
