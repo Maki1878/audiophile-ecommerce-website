@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      iconArrowRight: require('@/assets/shared/desktop/icon-arrow-right.svg'),
+      iconArrowRight: '/assets/shared/desktop/icon-arrow-right.svg',
     };
   },
 };

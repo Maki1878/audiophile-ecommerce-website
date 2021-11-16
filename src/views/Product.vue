@@ -20,10 +20,12 @@
     <p>{{ productName }}</p>
     <button @click="(showModal = true), addProductToCart(product)">add to cart</button>
   </div>
+  <ProductItemInShort :image="image"></ProductItemInShort>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import ProductItemInShort from '@/components/ProductItemInShort.vue';
 export default {
   props: {
     category: {
@@ -37,6 +39,9 @@ export default {
       default: '',
     },
   },
+  components: {
+    ProductItemInShort,
+  },
   data() {
     return {
       showModal: false,
@@ -49,6 +54,9 @@ export default {
     },
     productName() {
       return this.product.name.toUpperCase();
+    },
+    image() {
+      return this.product.image.desktop.slice(1);
     },
   },
   methods: {

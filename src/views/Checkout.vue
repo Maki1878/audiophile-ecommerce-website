@@ -187,7 +187,7 @@ export default {
   data() {
     return {
       showConfirmationModal: false,
-      cartIconPath: require('@/assets/shared/desktop/icon-cart.svg'),
+      cartIconPath: '/assets/shared/desktop/icon-cart.svg',
       name: {
         val: '',
         isValid: true,
@@ -335,6 +335,7 @@ export default {
   letter-spacing: 1px;
   text-transform: uppercase;
   color: var(--color-orange-dark);
+  margin-bottom: 1.6rem;
 }
 
 .billing-details {

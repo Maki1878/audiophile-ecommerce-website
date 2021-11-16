@@ -11,7 +11,7 @@ export default {
         name: product.shortName,
         slug: product.slug,
         price: product.price,
-        picture: require(`@/assets/cart/image-${product.slug}.jpg`),
+        picture: `/assets/cart/image-${product.slug}.jpg`,
         quantity: 1,
       };
       const cartItem = state.cart.find((item) => item.name === newProduct.name);

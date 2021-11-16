@@ -4,7 +4,7 @@
     <CartItem
       v-for="item in cartItems"
       :key="item.slug"
-      :image="require(`@/assets/cart/image-${item.slug}.jpg`)"
+      :image="`/assets/cart/image-${item.slug}.jpg`"
       :name="item.name"
       :price="item.price"
       class="cart-item"
@@ -48,7 +48,6 @@ export default {
 <style scoped>
 .summary {
   width: 35rem;
-  height: 61rem;
   background-color: var(--color-white);
   padding: 3.2rem 3.3rem;
   border-radius: 8px;

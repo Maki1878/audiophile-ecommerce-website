@@ -19,8 +19,8 @@
 export default {
   data() {
     return {
-      logoIconPath: require('@/assets/shared/desktop/logo.svg'),
-      cartIconPath: require('@/assets/shared/desktop/icon-cart.svg'),
+      logoIconPath: '/assets/shared/desktop/logo.svg',
+      cartIconPath: '/assets/shared/desktop/icon-cart.svg',
     };
   },
 };
