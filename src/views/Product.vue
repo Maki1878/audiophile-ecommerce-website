@@ -39,7 +39,6 @@
     ></ItemOtherFeatures>
     <SelectCategory class="select-category" />
     <BestGear class="best-gear" />
-    <Footer />
   </div>
 </template>
 
@@ -49,7 +48,6 @@ import ItemInShort from '@/components/ItemInShort.vue';
 import ItemOtherFeatures from '@/components/ItemOtherFeatures.vue';
 import SelectCategory from '@/components/SelectCategory.vue';
 import BestGear from '@/components/BestGear.vue';
-import Footer from '@/components/layout/Footer.vue';
 
 export default {
   props: {
@@ -69,7 +67,6 @@ export default {
     ItemOtherFeatures,
     SelectCategory,
     BestGear,
-    Footer,
   },
   data() {
     return {
