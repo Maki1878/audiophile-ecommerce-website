@@ -12,30 +12,32 @@
     <p>TOTAL {{ total }}</p>
     <router-link :to="{ name: 'Checkout' }">checkout</router-link>
   </dialog>
+  <div class="product-container">
+    <GoBack class="go-back-button" />
 
-  <div>
-    <button @click="$router.back()">Go Back</button>
+    <ItemInShort
+      :image="image"
+      :newProduct="newProduct"
+      :name="name"
+      :description="description"
+      :price="price"
+      @add-product="(showModal = true), addProductToCart(product)"
+    >
+      <!-- <BaseButton
+        link
+        :to="{ name: 'Product', params: { productSlug: product.slug } }"
+        class="see-product-button"
+        >SEE PRODUCT</BaseButton
+      > -->
+    </ItemInShort>
+    <ItemOtherFeatures
+      :features="features"
+      :includes="includes"
+      :gallery="gallery"
+      :otherProducts="others"
+      :category="category"
+    ></ItemOtherFeatures>
   </div>
-
-  <ItemInShort
-    :image="image"
-    :newProduct="newProduct"
-    :name="name"
-    :description="description"
-    :price="price"
-    @add-product="(showModal = true), addProductToCart(product)"
-  >
-    <!-- <BaseButton link :to="{ name: 'Product', params: { productSlug: product.slug } }"
-      >SEE PRODUCT</BaseButton
-    > -->
-  </ItemInShort>
-  <ItemOtherFeatures
-    :features="features"
-    :includes="includes"
-    :gallery="gallery"
-    :otherProducts="others"
-    :category="category"
-  ></ItemOtherFeatures>
 </template>
 
 <script>
@@ -137,5 +139,21 @@ export default {
   margin: 0;
   overflow: hidden;
   background-color: white;
+}
+
+.product-container {
+  width: 77%;
+  margin: 0 auto;
+}
+
+.go-back-button {
+  margin-bottom: 5.6rem;
+}
+
+.see-product-button {
+  margin-top: 4rem;
+  font-weight: var(--font-bold);
+  font-size: 1.3rem;
+  line-height: 1.78rem;
 }
 </style>

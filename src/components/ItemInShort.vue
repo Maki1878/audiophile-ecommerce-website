@@ -3,15 +3,19 @@
     <div>
       <img :src="image" alt="product-image" class="item-image" />
     </div>
-    <div class="item-description">
-      <p v-if="newProduct">NEW PROJECT</p>
+    <div class="item-details">
+      <p v-if="newProduct" class="new-product">NEW PROJECT</p>
       <h2>{{ name }}</h2>
-      <p>{{ description }}</p>
+      <p class="item-description">{{ description }}</p>
       <slot>
-        <p>$ {{ price }}</p>
+        <p class="item-price">$ {{ price }}</p>
         <div class="add-product">
-          <p>quantity</p>
-          <BaseButton @click="$emit('add-product')">ADD TO CART</BaseButton>
+          <div>
+            <span>-</span>
+            <span>{{ itemQuantity }}</span>
+            <span>+</span>
+          </div>
+          <BaseButton @click="$emit('add-product')" class="add-button">ADD TO CART</BaseButton>
         </div>
       </slot>
     </div>
@@ -50,19 +54,59 @@ export default {
       required: false,
     },
   },
+  data() {
+    return {
+      itemQuantity: 1,
+    };
+  },
 };
 </script>
 
 <style scoped>
 .item {
   display: flex;
+  gap: 12.45rem;
 }
 
 .item-image {
   width: 56rem;
   height: 54rem;
+  border-radius: 8px;
 }
 .add-product {
   display: flex;
+  gap: 1.6rem;
+}
+
+.new-product {
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+  letter-spacing: 1rem;
+  color: var(--color-orange-dark);
+  font-weight: var(--font-regular);
+  margin-bottom: 1.6rem;
+}
+
+.item-details {
+  align-self: center;
+}
+
+.item-description {
+  margin-top: 3.2rem;
+  opacity: 0.5;
+}
+
+.item-price {
+  margin-top: 3.2rem;
+  margin-bottom: 4.7rem;
+  font-weight: var(--font-bold);
+  font-size: 1.8rem;
+  line-height: 2.46rem;
+}
+
+.add-button {
+  font-weight: var(--font-bold);
+  font-size: 1.3rem;
+  line-height: 1.78rem;
 }
 </style>

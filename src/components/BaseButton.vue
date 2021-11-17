@@ -1,20 +1,22 @@
 <template>
-  <button v-if="!link" :class="mode">
-    <slot>
-      <div>
-        <span>SHOP</span>
-        <img :src="iconArrowRight" alt="arrow-right-icon" />
-      </div>
-    </slot>
-  </button>
-  <router-link v-else :to="to" :class="mode">
-    <slot>
-      <div>
-        <span>SHOP</span>
-        <img :src="iconArrowRight" alt="arrow-right-icon" />
-      </div>
-    </slot>
-  </router-link>
+  <div>
+    <button v-if="!link" :class="mode">
+      <slot>
+        <div>
+          <span>SHOP</span>
+          <img :src="iconArrowRight" alt="arrow-right-icon" />
+        </div>
+      </slot>
+    </button>
+    <router-link v-else :to="to" :class="mode">
+      <slot>
+        <div>
+          <span>SHOP</span>
+          <img :src="iconArrowRight" alt="arrow-right-icon" />
+        </div>
+      </slot>
+    </router-link>
+  </div>
 </template>
 
 <script>
@@ -57,6 +59,9 @@ a {
   letter-spacing: 1px;
   cursor: pointer;
   font: inherit;
+  width: 16rem;
+  height: 4.8rem;
+  text-decoration: none;
 }
 
 a:hover,
@@ -73,6 +78,8 @@ button:active {
   font-weight: var(--font-bold);
   font-size: 1.3rem;
   line-height: 1.78rem;
+  width: 16rem;
+  height: 4.8rem;
 }
 
 .white:hover,
@@ -88,6 +95,8 @@ button:active {
   font-weight: var(--font-bold);
   font-size: 1.3rem;
   line-height: 1.78rem;
+  width: 16rem;
+  height: 4.8rem;
 }
 
 .outline:hover,
