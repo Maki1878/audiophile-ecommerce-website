@@ -37,6 +37,7 @@
       :otherProducts="others"
       :category="category"
     ></ItemOtherFeatures>
+    <SelectCategory />
   </div>
 </template>
 
@@ -44,6 +45,7 @@
 import { mapGetters, mapActions } from 'vuex';
 import ItemInShort from '@/components/ItemInShort.vue';
 import ItemOtherFeatures from '@/components/ItemOtherFeatures.vue';
+import SelectCategory from '@/components/SelectCategory.vue';
 export default {
   props: {
     category: {
@@ -60,6 +62,7 @@ export default {
   components: {
     ItemInShort,
     ItemOtherFeatures,
+    SelectCategory,
   },
   data() {
     return {
