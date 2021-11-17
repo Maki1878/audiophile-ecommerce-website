@@ -38,6 +38,8 @@
       :category="category"
     ></ItemOtherFeatures>
     <SelectCategory class="select-category" />
+    <BestGear class="best-gear" />
+    <Footer />
   </div>
 </template>
 
@@ -46,6 +48,9 @@ import { mapGetters, mapActions } from 'vuex';
 import ItemInShort from '@/components/ItemInShort.vue';
 import ItemOtherFeatures from '@/components/ItemOtherFeatures.vue';
 import SelectCategory from '@/components/SelectCategory.vue';
+import BestGear from '@/components/BestGear.vue';
+import Footer from '@/components/layout/Footer.vue';
+
 export default {
   props: {
     category: {
@@ -63,6 +68,8 @@ export default {
     ItemInShort,
     ItemOtherFeatures,
     SelectCategory,
+    BestGear,
+    Footer,
   },
   data() {
     return {
@@ -161,6 +168,11 @@ export default {
 }
 
 .select-category {
+  margin-bottom: 16rem;
+  margin-top: 4rem;
+}
+
+.best-gear {
   margin-bottom: 16rem;
 }
 </style>

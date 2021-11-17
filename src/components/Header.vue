@@ -1,5 +1,13 @@
 <template>
-  <Navbar />
+  <div class="navigation">
+    <div class="logo" v-if="logoIconPath">
+      <img :src="logoIconPath" class="logo-icon" alt="logo" />
+    </div>
+    <Navbar />
+    <div class="cart">
+      <img :src="cartIconPath" class="cart-icon" alt="cart" />
+    </div>
+  </div>
 </template>
 
 <script>
@@ -8,7 +16,20 @@ export default {
   components: {
     Navbar,
   },
+  data() {
+    return {
+      logoIconPath: '/assets/shared/desktop/logo.svg',
+      cartIconPath: '/assets/shared/desktop/icon-cart.svg',
+    };
+  },
 };
 </script>
 
-<style></style>
+<style scoped>
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+</style>
