@@ -31,7 +31,7 @@ export default {
       default: false,
     },
     to: {
-      type: String,
+      type: [Object, String],
       required: false,
       default: '/',
     },

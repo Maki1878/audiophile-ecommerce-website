@@ -16,16 +16,32 @@
   <div>
     <button @click="$router.back()">Go Back</button>
   </div>
-  <div class="product">
-    <p>{{ productName }}</p>
-    <button @click="(showModal = true), addProductToCart(product)">add to cart</button>
-  </div>
-  <ProductItemInShort :image="image"></ProductItemInShort>
+
+  <ItemInShort
+    :image="image"
+    :newProduct="newProduct"
+    :name="name"
+    :description="description"
+    :price="price"
+    @add-product="(showModal = true), addProductToCart(product)"
+  >
+    <!-- <BaseButton link :to="{ name: 'Product', params: { productSlug: product.slug } }"
+      >SEE PRODUCT</BaseButton
+    > -->
+  </ItemInShort>
+  <ItemOtherFeatures
+    :features="features"
+    :includes="includes"
+    :gallery="gallery"
+    :otherProducts="others"
+    :category="category"
+  ></ItemOtherFeatures>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import ProductItemInShort from '@/components/ProductItemInShort.vue';
+import ItemInShort from '@/components/ItemInShort.vue';
+import ItemOtherFeatures from '@/components/ItemOtherFeatures.vue';
 export default {
   props: {
     category: {
@@ -40,7 +56,8 @@ export default {
     },
   },
   components: {
-    ProductItemInShort,
+    ItemInShort,
+    ItemOtherFeatures,
   },
   data() {
     return {
@@ -57,6 +74,30 @@ export default {
     },
     image() {
       return this.product.image.desktop.slice(1);
+    },
+    newProduct() {
+      return this.product.new;
+    },
+    name() {
+      return this.product.name.toUpperCase();
+    },
+    description() {
+      return this.product.description;
+    },
+    price() {
+      return this.product.price;
+    },
+    features() {
+      return this.product.features;
+    },
+    includes() {
+      return this.product.includes;
+    },
+    gallery() {
+      return this.product.gallery;
+    },
+    others() {
+      return this.product.others;
     },
   },
   methods: {
