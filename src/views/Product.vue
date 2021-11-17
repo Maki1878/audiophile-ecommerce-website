@@ -37,7 +37,7 @@
       :otherProducts="others"
       :category="category"
     ></ItemOtherFeatures>
-    <SelectCategory />
+    <SelectCategory class="select-category" />
   </div>
 </template>
 
@@ -158,5 +158,9 @@ export default {
   font-weight: var(--font-bold);
   font-size: 1.3rem;
   line-height: 1.78rem;
+}
+
+.select-category {
+  margin-bottom: 16rem;
 }
 </style>

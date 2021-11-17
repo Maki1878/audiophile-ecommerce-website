@@ -1,13 +1,51 @@
 <template>
   <div class="categories">
-    <div class="category"></div>
-    <div class="category"></div>
-    <div class="category"></div>
+    <div class="category">
+      <div class="category-container">
+        <div class="category-headphones-image"></div>
+        <h6 class="category-headphones-name">HEADPHONES</h6>
+        <BaseButton
+          link
+          mode="outline"
+          :to="{ name: 'Category', params: { category: 'headphones' } }"
+        />
+      </div>
+    </div>
+    <div class="category">
+      <div class="category-container">
+        <div class="category-speakers-image"></div>
+        <h6>SPEAKERS</h6>
+        <BaseButton
+          link
+          mode="outline"
+          :to="{ name: 'Category', params: { category: 'speakers' } }"
+        />
+      </div>
+    </div>
+    <div class="category">
+      <div class="category-container">
+        <div class="category-earphones-image"></div>
+        <h6>EARPHONES</h6>
+        <BaseButton
+          link
+          mode="outline"
+          :to="{ name: 'Category', params: { category: 'earphones' } }"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      headphonesImagePath: '/assets/shared/desktop/image-category-thumbnail-headphones.png',
+      speakersImagePath: '/assets/shared/desktop/image-category-thumbnail-speakers.png',
+      earphonesImagePath: '/assets/shared/desktop/image-category-thumbnail-earphones.png',
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -21,5 +59,46 @@ export default {};
   width: 35rem;
   height: 20.4rem;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+.category-headphones-image {
+  background-image: url('/assets/shared/desktop/image-category-thumbnail-headphones.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 15rem;
+  width: 14rem;
+  margin-top: -1rem;
+  margin-right: 2rem;
+}
+.category-speakers-image {
+  background-image: url('/assets/shared/desktop/image-category-thumbnail-speakers.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 15rem;
+  width: 14rem;
+  margin-right: 2rem;
+}
+.category-earphones-image {
+  background-image: url('/assets/shared/desktop/image-category-thumbnail-earphones.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 15rem;
+  width: 17rem;
+  margin-right: 1rem;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -5rem;
+}
+
+.category-headphones-name {
+  margin-top: 1rem;
 }
 </style>
