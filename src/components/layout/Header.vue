@@ -45,5 +45,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   height: inherit;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 </style>

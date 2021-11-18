@@ -27,7 +27,7 @@
       <span class="title">GRAND TOTAL</span>
       <span class="grand-total-amount amount">$ {{ grandTotal }}</span>
     </div>
-    <BaseButton @click="$emit('show-modal')" class="pay-button">COUNTINUE &#38; PAY</BaseButton>
+    <BaseButton @click="$emit('show-modal')" mode="width">COUNTINUE &#38; PAY</BaseButton>
   </div>
 </template>
 
@@ -89,9 +89,5 @@ export default {
 
 .grand-total-amount {
   color: var(--color-orange-dark);
-}
-
-.pay-button {
-  width: 100%;
 }
 </style>

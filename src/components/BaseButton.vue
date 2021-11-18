@@ -27,6 +27,11 @@ export default {
       required: false,
       default: null,
     },
+    width: {
+      type: String,
+      required: false,
+      default: null,
+    },
     link: {
       type: Boolean,
       required: false,
@@ -71,20 +76,20 @@ button:active {
   background-color: var(--color-orange-light);
 }
 
-.white {
-  background-color: var(--color-white);
-  color: var(--color-black);
+.black {
+  background-color: var(--color-black);
+  color: var(--color-white);
   border: 1px solid var(--color-black);
   font-weight: var(--font-bold);
   font-size: 1.3rem;
   line-height: 1.78rem;
-  width: 16rem;
+  width: 17rem;
   height: 4.8rem;
 }
 
-.white:hover,
-.white:active {
-  background-color: var(--color-black);
+.black:hover,
+.black:active {
+  background-color: #4c4c4c;
   color: var(--color-white);
 }
 
@@ -107,5 +112,9 @@ button:active {
 
 span {
   margin-right: 1.33rem;
+}
+
+.width:first-child {
+  width: 100%;
 }
 </style>

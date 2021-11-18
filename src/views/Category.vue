@@ -9,7 +9,6 @@
         :newProduct="product.new"
         :name="product.name.toUpperCase()"
         :description="product.description"
-        :price="product.price"
       >
         <BaseButton
           link
