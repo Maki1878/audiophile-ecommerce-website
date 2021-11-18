@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div v-if="showModal" class="backdrop" @click="closeModal"></div>
   <dialog open class="dialog" v-if="showModal">
     <button @click="emptyCart">Remove all</button>
@@ -42,6 +43,7 @@ import ItemInShort from '@/components/ItemInShort.vue';
 import ItemOtherFeatures from '@/components/ItemOtherFeatures.vue';
 import SelectCategory from '@/components/SelectCategory.vue';
 import BestGear from '@/components/BestGear.vue';
+import Header from '@/components/layout/Header.vue';
 
 export default {
   props: {
@@ -61,6 +63,7 @@ export default {
     ItemOtherFeatures,
     SelectCategory,
     BestGear,
+    Header,
   },
   data() {
     return {

@@ -93,6 +93,23 @@ button:active {
   color: var(--color-white);
 }
 
+.transparent {
+  background-color: transparent;
+  color: var(--color-black);
+  border: 2px solid var(--color-black);
+  font-weight: var(--font-bold);
+  font-size: 1.3rem;
+  line-height: 1.78rem;
+  width: 17rem;
+  height: 4.8rem;
+}
+
+.transparent:hover,
+.transparent:active {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
 .outline {
   background-color: transparent;
   color: var(--color-black);

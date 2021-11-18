@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation">
+  <div class="navigation" :class="mode">
     <div class="navigation-container">
       <img
         :src="hamburgerIconPath"
@@ -17,6 +17,13 @@
 <script>
 import Navbar from '../Navbar.vue';
 export default {
+  props: {
+    mode: {
+      type: String,
+      required: false,
+      default: null,
+    },
+  },
   components: {
     Navbar,
   },
@@ -46,5 +53,9 @@ export default {
   align-items: center;
   height: inherit;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.background {
+  background-color: #141414;
 }
 </style>

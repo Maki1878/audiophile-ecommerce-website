@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div v-if="showConfirmationModal" class="backdrop" @click="closeModal">
     <dialog open class="dialog">
       <p>GRAND TOTAL {{ grandTotal }}</p>
@@ -177,12 +178,14 @@
 
 <script>
 import Summary from '@/components/Summary.vue';
+import Header from '@/components/layout/Header.vue';
 
 import { mapGetters } from 'vuex';
 
 export default {
   components: {
     Summary,
+    Header,
   },
   data() {
     return {

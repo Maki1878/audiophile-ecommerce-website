@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 .footer {
-  background-color: var(--color-black);
+  background-color: #101010;
   height: 36.5rem;
 }
 

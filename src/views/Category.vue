@@ -1,4 +1,5 @@
 <template>
+  <Header />
   <div class="category-header">
     <h2>{{ categoryNameUpper }}</h2>
   </div>
@@ -28,12 +29,14 @@ import { mapGetters, mapActions } from 'vuex';
 import ItemInShort from '@/components/ItemInShort.vue';
 import SelectCategory from '@/components/SelectCategory.vue';
 import BestGear from '@/components/BestGear.vue';
+import Header from '@/components/layout/Header.vue';
 
 export default {
   components: {
     ItemInShort,
     SelectCategory,
     BestGear,
+    Header,
   },
   props: {
     category: {
