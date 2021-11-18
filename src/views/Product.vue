@@ -23,12 +23,6 @@
       :price="price"
       @add-product="(showModal = true), addProductToCart(product)"
     >
-      <!-- <BaseButton
-        link
-        :to="{ name: 'Product', params: { productSlug: product.slug } }"
-        class="see-product-button"
-        >SEE PRODUCT</BaseButton
-      > -->
     </ItemInShort>
     <ItemOtherFeatures
       :features="features"
@@ -155,13 +149,6 @@ export default {
 
 .go-back-button {
   margin-bottom: 5.6rem;
-}
-
-.see-product-button {
-  margin-top: 4rem;
-  font-weight: var(--font-bold);
-  font-size: 1.3rem;
-  line-height: 1.78rem;
 }
 
 .select-category {

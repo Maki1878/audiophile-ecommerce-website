@@ -4,7 +4,7 @@
       <img :src="image" alt="product-image" class="item-image" />
     </div>
     <div class="item-details">
-      <p v-if="newProduct" class="new-product">NEW PROJECT</p>
+      <p v-if="newProduct" class="new-product">NEW PRODUCT</p>
       <h2>{{ name }}</h2>
       <p class="item-description">{{ description }}</p>
       <slot>
