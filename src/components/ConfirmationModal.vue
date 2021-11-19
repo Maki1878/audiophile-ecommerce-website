@@ -1,33 +1,42 @@
 <template>
-  <div class="backdrop">
-    <dialog open class="modal">
-      <div class="cart-icon">
-        <img :src="cartIconPath" alt="cart" />
-      </div>
-      <h3 class="modal-header">THANK YOU FOR YOUR ORDER</h3>
-      <p class="modal-info">You will receive an email confirmation shortly.</p>
-      <div class="modal-total">
-        <div class="modal-total-items">
-          <CartItem
-            :image="`/assets/cart/image-${firstCartItem.slug}.jpg`"
-            :name="firstCartItem.name"
-            :price="firstCartItem.price"
-            class="modal-total-item"
-          >
-            <span class="modal-total-item-quantity">x{{ firstCartItem.quantity }}</span>
-          </CartItem>
+  <div class="backdrop"></div>
+  <dialog open class="modal">
+    <div class="cart-icon">
+      <img :src="cartIconPath" alt="cart" />
+    </div>
+    <h3 class="modal-header">
+      THANK YOU <br />
+      FOR YOUR ORDER
+    </h3>
+    <p class="modal-info">You will receive an email confirmation shortly.</p>
+    <div class="modal-total">
+      <div class="modal-total-items">
+        <CartItem
+          :image="`/assets/cart/image-${firstCartItem.slug}.jpg`"
+          :name="firstCartItem.name"
+          :price="firstCartItem.price"
+          class="modal-total-item"
+        >
+          <span class="modal-total-item-quantity">x{{ firstCartItem.quantity }}</span>
+        </CartItem>
 
-          <p class="modal-total-other-items">and {{ cartItems.length - 1 }} other item(s)</p>
-        </div>
-        <div class="modal-total-amount">GRAND TOTAL {{ grandTotal }}</div>
+        <p class="modal-total-other-items">and {{ cartItems.length - 1 }} other item(s)</p>
       </div>
-      <router-link :to="{ name: 'Home' }">BACK TO HOME</router-link>
-    </dialog>
-  </div>
+      <div class="modal-total-amount">
+        <div class="modal-total-amount-container">
+          <span class="grand-total-title">GRAND TOTAL</span>
+          <h6>$ {{ grandTotal }}</h6>
+        </div>
+      </div>
+    </div>
+    <BaseButton link :to="{ name: 'Home' }" mode="width" class="home-button" @click="emptyCart"
+      >BACK TO HOME</BaseButton
+    >
+  </dialog>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import CartItem from '@/components/CartItem.vue';
 export default {
   emits: ['close-modal'],
@@ -41,6 +50,9 @@ export default {
   },
   computed: {
     ...mapGetters(['grandTotal', 'firstCartItem', 'cartItems']),
+  },
+  methods: {
+    ...mapActions(['emptyCart']),
   },
 };
 </script>
@@ -63,11 +75,12 @@ export default {
   width: 54rem;
   height: 58rem;
   z-index: 100;
-  border-radius: 12px;
+  border-radius: 8px;
   border: none;
   overflow: hidden;
   background-color: white;
   padding: 48px;
+  margin-top: 12.5rem;
 }
 
 .cart-icon {
@@ -81,7 +94,7 @@ export default {
 }
 
 .modal-header {
-  width: 28.4rem;
+  width: 29.4rem;
   height: 7.2rem;
 }
 
@@ -109,6 +122,7 @@ export default {
   background-color: var(--color-black);
   flex: 1;
   border-radius: 0 8px 8px 0;
+  color: var(--color-white);
 }
 
 .modal-total-item-quantity {
@@ -118,6 +132,7 @@ export default {
 
 .modal-total-item {
   margin-bottom: 0;
+  margin-top: -5px;
 }
 
 .modal-total-other-items {
@@ -128,5 +143,26 @@ export default {
   line-height: 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 12px;
+}
+
+.home-button {
+  display: flex;
+  text-align: center;
+  font-weight: var(--font-bold);
+  font-size: 1.3rem;
+  line-height: 1.78rem;
+  margin-top: 4.6rem;
+}
+
+.modal-total-amount-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-left: 32px;
+  margin-top: 41px;
+}
+
+.grand-total-title {
+  opacity: 50%;
 }
 </style>

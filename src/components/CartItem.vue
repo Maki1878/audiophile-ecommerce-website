@@ -9,7 +9,7 @@
         <p class="item-price">$ {{ price }}</p>
       </div>
     </div>
-    <div>
+    <div class="slot">
       <slot></slot>
     </div>
   </div>
@@ -67,5 +67,9 @@ export default {
   line-height: 2.5rem;
   opacity: 0.5;
   font-weight: var(--font-bold);
+}
+
+.slot {
+  margin-top: -25px;
 }
 </style>
