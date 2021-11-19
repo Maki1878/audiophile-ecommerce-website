@@ -1,18 +1,21 @@
 <template>
   <Header />
-  <div v-if="showModal" class="backdrop" @click="closeModal"></div>
-  <dialog open class="dialog" v-if="showModal">
-    <button @click="emptyCart">Remove all</button>
-    <div v-for="item in cartItems" :key="item.name">
-      <p>{{ item.name }}</p>
-      <p>${{ item.price }}</p>
-      <p>{{ item.quantity }}x</p>
-      <button @click="incrementCartItemQuantity(item)">+++</button>
-      <button @click="decrementCartItemQuantity(item)">---</button>
-    </div>
-    <p>TOTAL {{ total }}</p>
-    <router-link :to="{ name: 'Checkout' }">checkout</router-link>
-  </dialog>
+  <CartModal v-if="showModal" @close-modal="closeModal" />
+  <!-- <div v-if="showModal">
+    <div class="backdrop" @click="closeModal"></div>
+    <dialog open class="dialog">
+      <button @click="emptyCart">Remove all</button>
+      <div v-for="item in cartItems" :key="item.name">
+        <p>{{ item.name }}</p>
+        <p>${{ item.price }}</p>
+        <p>{{ item.quantity }}x</p>
+        <button @click="incrementCartItemQuantity(item)">+++</button>
+        <button @click="decrementCartItemQuantity(item)">---</button>
+      </div>
+      <p>TOTAL {{ total }}</p>
+      <router-link :to="{ name: 'Checkout' }">checkout</router-link>
+    </dialog>
+  </div> -->
   <div class="product-container">
     <GoBack class="go-back-button" />
 
@@ -43,6 +46,7 @@ import ItemInShort from '@/components/ItemInShort.vue';
 import ItemOtherFeatures from '@/components/ItemOtherFeatures.vue';
 import SelectCategory from '@/components/SelectCategory.vue';
 import BestGear from '@/components/BestGear.vue';
+import CartModal from '@/components/CartModal.vue';
 import Header from '@/components/layout/Header.vue';
 
 export default {
@@ -64,6 +68,7 @@ export default {
     SelectCategory,
     BestGear,
     Header,
+    CartModal,
   },
   data() {
     return {
@@ -130,7 +135,7 @@ export default {
 </script>
 
 <style scoped>
-.backdrop {
+/* .backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -152,7 +157,7 @@ export default {
   margin: 0;
   overflow: hidden;
   background-color: white;
-}
+} */
 
 .product-container {
   width: 77%;

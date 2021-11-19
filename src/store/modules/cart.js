@@ -49,14 +49,12 @@ export default {
   mutations: {
     increment(state) {
       state.itemQuantity++;
-      console.log(state.itemQuantity);
     },
     decrement(state) {
       if (state.itemQuantity === 1) {
         return;
       }
       state.itemQuantity--;
-      console.log(state.itemQuantity);
     },
     resetQuantity(state) {
       state.itemQuantity = 1;
