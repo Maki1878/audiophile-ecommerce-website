@@ -1,6 +1,6 @@
 <template>
   <div>
-    <button v-if="!link" :class="mode">
+    <button v-if="!link" :class="[mode, disable]">
       <slot>
         <div>
           <span>SHOP</span>
@@ -8,7 +8,7 @@
         </div>
       </slot>
     </button>
-    <router-link v-else :to="to" :class="mode">
+    <router-link v-else :to="to" :class="[mode, disable]">
       <slot>
         <div>
           <span>SHOP</span>
@@ -34,6 +34,11 @@ export default {
     },
     link: {
       type: Boolean,
+      required: false,
+      default: false,
+    },
+    disable: {
+      type: String,
       required: false,
       default: false,
     },
@@ -133,5 +138,9 @@ span {
 
 .width:first-child {
   width: 100%;
+}
+
+.disable:first-child {
+  pointer-events: none;
 }
 </style>

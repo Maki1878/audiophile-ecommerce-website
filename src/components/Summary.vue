@@ -7,7 +7,6 @@
       :image="`/assets/cart/image-${item.slug}.jpg`"
       :name="item.name"
       :price="item.price"
-      class="cart-item"
     >
       <span class="item-quantity">x{{ item.quantity }}</span>
     </CartItem>
@@ -60,10 +59,6 @@ export default {
 .item-quantity {
   font-weight: var(--font-bold);
   opacity: 0.5;
-}
-
-.cart-item {
-  margin-bottom: 2.4rem;
 }
 
 .d-flex {

@@ -1,21 +1,6 @@
 <template>
   <Header />
   <CartModal v-if="showModal" @close-modal="closeModal" />
-  <!-- <div v-if="showModal">
-    <div class="backdrop" @click="closeModal"></div>
-    <dialog open class="dialog">
-      <button @click="emptyCart">Remove all</button>
-      <div v-for="item in cartItems" :key="item.name">
-        <p>{{ item.name }}</p>
-        <p>${{ item.price }}</p>
-        <p>{{ item.quantity }}x</p>
-        <button @click="incrementCartItemQuantity(item)">+++</button>
-        <button @click="decrementCartItemQuantity(item)">---</button>
-      </div>
-      <p>TOTAL {{ total }}</p>
-      <router-link :to="{ name: 'Checkout' }">checkout</router-link>
-    </dialog>
-  </div> -->
   <div class="product-container">
     <GoBack class="go-back-button" />
 

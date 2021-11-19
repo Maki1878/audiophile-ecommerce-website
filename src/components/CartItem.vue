@@ -37,6 +37,8 @@ export default {
 .item {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2.4rem;
+  align-items: center;
 }
 
 .item-image {
@@ -48,6 +50,12 @@ export default {
 .item-container {
   display: flex;
   gap: 1.6rem;
+}
+
+.item-name-price {
+  width: 76px;
+  height: 50px;
+  align-self: center;
 }
 
 .item-name {

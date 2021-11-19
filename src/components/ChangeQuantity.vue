@@ -41,6 +41,7 @@ span,
 button {
   width: 16px;
   height: 18px;
+  font-weight: var(--font-bold);
 }
 
 .operator {
@@ -50,5 +51,9 @@ button {
 button {
   border: none;
   cursor: pointer;
+}
+
+button:hover {
+  color: var(--color-orange-dark);
 }
 </style>
