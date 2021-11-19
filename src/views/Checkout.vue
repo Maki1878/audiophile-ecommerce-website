@@ -1,11 +1,12 @@
 <template>
   <Header />
-  <div v-if="showConfirmationModal" class="backdrop" @click="closeModal">
+  <!-- <div v-if="showConfirmationModal" class="backdrop" @click="closeModal">
     <dialog open class="dialog">
       <p>GRAND TOTAL {{ grandTotal }}</p>
       <router-link :to="{ name: 'Home' }">BACK TO HOME</router-link>
     </dialog>
-  </div>
+  </div> -->
+  <ConfirmationModal v-if="showConfirmationModal"></ConfirmationModal>
   <div class="background">
     <div class="checkout">
       <GoBack />
@@ -178,14 +179,16 @@
 
 <script>
 import Summary from '@/components/Summary.vue';
+import ConfirmationModal from '@/components/ConfirmationModal.vue';
 import Header from '@/components/layout/Header.vue';
 
-import { mapGetters } from 'vuex';
+// import { mapGetters } from 'vuex';
 
 export default {
   components: {
     Summary,
     Header,
+    ConfirmationModal,
   },
   data() {
     return {
@@ -235,7 +238,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters(['grandTotal']),
+    // ...mapGetters(['grandTotal']),
     showCashDeliveryDescription() {
       return this.payment.val === 'cash' ? true : false;
     },
@@ -434,7 +437,7 @@ input {
   border: 2px solid #cd2c2c;
 }
 
-.backdrop {
+/* .backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -455,7 +458,7 @@ input {
   border: none;
   overflow: hidden;
   background-color: white;
-}
+} */
 
 label {
   font-weight: var(--font-bold);

@@ -97,5 +97,9 @@ export default {
     itemQuantity(state) {
       return state.itemQuantity;
     },
+    firstCartItem(state, getters) {
+      let [firstItem] = getters.cartItems;
+      return firstItem;
+    },
   },
 };

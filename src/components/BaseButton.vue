@@ -38,9 +38,9 @@ export default {
       default: false,
     },
     disable: {
-      type: String,
+      type: [String, Boolean],
       required: false,
-      default: false,
+      default: '',
     },
     to: {
       type: [Object, String],

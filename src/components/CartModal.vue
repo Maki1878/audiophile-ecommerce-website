@@ -30,7 +30,7 @@
         <h6 class="modal-total-price">$ {{ total }}</h6>
       </div>
       <BaseButton
-        :disable="cartItemsQuantity > 0 ? '' : 'disable'"
+        :disable="cartItemsQuantity > 0 ? 'not' : 'disable'"
         link
         :to="{ name: 'Checkout' }"
         mode="width"
