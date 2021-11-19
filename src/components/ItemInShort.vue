@@ -10,11 +10,7 @@
       <slot>
         <p class="item-price">$ {{ price }}</p>
         <div class="add-product">
-          <div>
-            <span>-</span>
-            <span>{{ itemQuantity }}</span>
-            <span>+</span>
-          </div>
+          <ChangeQuantity />
           <BaseButton @click="$emit('add-product')" class="add-button">ADD TO CART</BaseButton>
         </div>
       </slot>
@@ -23,8 +19,13 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import ChangeQuantity from '@/components/ChangeQuantity.vue';
 export default {
-  emits: ['add-product'],
+  emits: ['add-product', 'increment-quantity', 'decrement-quantity'],
+  components: {
+    ChangeQuantity,
+  },
   props: {
     image: {
       required: true,
@@ -54,11 +55,9 @@ export default {
       required: false,
     },
   },
-  data() {
-    return {
-      itemQuantity: 1,
-    };
-  },
+  // computed: {
+  //   ...mapGetters(['itemQuantity']),
+  // },
 };
 </script>
 

@@ -3,6 +3,7 @@ export default {
     return {
       cart: [],
       shipping: 50,
+      itemQuantity: 1,
     };
   },
   actions: {
@@ -12,40 +13,65 @@ export default {
         slug: product.slug,
         price: product.price,
         picture: `/assets/cart/image-${product.slug}.jpg`,
-        quantity: 1,
+        quantity: state.itemQuantity,
       };
       const cartItem = state.cart.find((item) => item.name === newProduct.name);
       if (!cartItem) {
         commit('pushProductToCart', newProduct);
+        commit('resetQuantity');
       } else {
         commit('incrementItemQuantity', cartItem);
+        commit('resetQuantity');
       }
     },
     emptyCart({ commit }) {
       commit('removeAllItemsFromCart');
     },
-    incrementItemQuantity({ commit, state }, product) {
-      const cartItem = state.cart.find((item) => item.name === product.name);
-      commit('incrementItemQuantity', cartItem);
+    incrementItemQuantity({ commit }) {
+      commit('increment');
     },
-    decrementItemQuantity({ commit, state }, product) {
+    decrementItemQuantity({ commit }) {
+      commit('decrement');
+    },
+    incrementCartItemQuantity({ commit, state }, product) {
+      const cartItem = state.cart.find((item) => item.name === product.name);
+      commit('incrementCartItemQuantity', cartItem);
+    },
+    decrementCartItemQuantity({ commit, state }, product) {
       const cartItem = state.cart.find((item) => item.name === product.name);
       if (cartItem.quantity === 1) {
         commit('removeItemFromCart', cartItem);
       } else {
-        commit('decrementItemQuantity', cartItem);
+        commit('decrementCartItemQuantity', cartItem);
       }
     },
   },
   mutations: {
+    increment(state) {
+      state.itemQuantity++;
+      console.log(state.itemQuantity);
+    },
+    decrement(state) {
+      if (state.itemQuantity === 1) {
+        return;
+      }
+      state.itemQuantity--;
+      console.log(state.itemQuantity);
+    },
+    resetQuantity(state) {
+      state.itemQuantity = 1;
+    },
     pushProductToCart(state, newProduct) {
       state.cart.unshift(newProduct);
     },
-    incrementItemQuantity(state, cartItem) {
-      cartItem.quantity++;
+    incrementItemQuantity(state, product) {
+      product.quantity += state.itemQuantity;
     },
-    decrementItemQuantity(state, cartItem) {
-      cartItem.quantity--;
+    incrementCartItemQuantity(state, item) {
+      item.quantity++;
+    },
+    decrementCartItemQuantity(state, item) {
+      item.quantity--;
     },
     removeAllItemsFromCart(state) {
       state.cart = [];
@@ -69,6 +95,9 @@ export default {
     },
     grandTotal(state, getters) {
       return getters.total + state.shipping + getters.valueAddedTax;
+    },
+    itemQuantity(state) {
+      return state.itemQuantity;
     },
   },
 };

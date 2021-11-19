@@ -7,8 +7,8 @@
       <p>{{ item.name }}</p>
       <p>${{ item.price }}</p>
       <p>{{ item.quantity }}x</p>
-      <button @click="incrementItemQuantity(item)">+++</button>
-      <button @click="decrementItemQuantity(item)">---</button>
+      <button @click="incrementCartItemQuantity(item)">+++</button>
+      <button @click="decrementCartItemQuantity(item)">---</button>
     </div>
     <p>TOTAL {{ total }}</p>
     <router-link :to="{ name: 'Checkout' }">checkout</router-link>
@@ -22,7 +22,7 @@
       :name="name"
       :description="description"
       :price="price"
-      @add-product="(showModal = true), addProductToCart(product)"
+      @add-product="addToCart"
     >
     </ItemInShort>
     <ItemOtherFeatures
@@ -93,6 +93,9 @@ export default {
     price() {
       return this.product.price;
     },
+    cartItem() {
+      return this.product;
+    },
     features() {
       return this.product.features;
     },
@@ -112,9 +115,15 @@ export default {
       'emptyCart',
       'incrementItemQuantity',
       'decrementItemQuantity',
+      'incrementCartItemQuantity',
+      'decrementCartItemQuantity',
     ]),
     closeModal() {
       this.showModal = false;
+    },
+    addToCart() {
+      this.addProductToCart(this.product);
+      this.showModal = true;
     },
   },
 };
