@@ -6,7 +6,8 @@
         Located at the heart of New York City, Audiophile is the premier store for high end
         headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury
         demonstration rooms available for you to browse and experience a wide range of our products.
-        Stop by our store to meet
+        Stop by our store to meet some of the fantastic people who make Audiophile the best place to
+        buy your portable audio equipment.
       </p>
     </div>
     <img :src="bestGearPath" alt="best-gear-image" class="best-gear-image" />
@@ -14,10 +15,12 @@
 </template>
 
 <script>
+import screenSize from '@/mixins/screenSize';
 export default {
+  mixins: [screenSize],
   computed: {
     bestGearPath() {
-      return '/assets/shared/desktop/image-best-gear.jpg';
+      return `/assets/shared/${this.screen}/image-best-gear.jpg`;
     },
   },
 };
@@ -44,5 +47,16 @@ export default {
 
 span {
   color: var(--color-orange-dark);
+}
+
+@media (max-width: 68em) {
+  .best-gear-container {
+    flex-direction: column-reverse;
+    gap: 6.1rem;
+  }
+
+  .best-gear-description {
+    margin: 0 9%;
+  }
 }
 </style>

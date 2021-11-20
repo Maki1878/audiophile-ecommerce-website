@@ -4,20 +4,24 @@
     <h2>{{ categoryNameUpper }}</h2>
   </div>
   <div class="category-main">
-    <div v-for="product in productsInCategory" :key="product.id">
-      <ItemInShort
-        :image="product.image.desktop.slice(1)"
-        :newProduct="product.new"
-        :name="product.name.toUpperCase()"
-        :description="product.description"
-      >
-        <BaseButton
-          link
-          class="see-product-button"
-          :to="{ name: 'Product', params: { productSlug: product.slug } }"
-          >SEE PRODUCT</BaseButton
+    <div class="category-items">
+      <div v-for="(product, index) in productsInCategory" :key="index">
+        <ItemInShort
+          :image="product.image[screen].slice(1)"
+          :newProduct="product.new"
+          :name="product.name.toUpperCase()"
+          :description="product.description"
+          :class="{ 'item-in-short': index % 2 !== 0 }"
+          class="d-flex-column"
         >
-      </ItemInShort>
+          <BaseButton
+            link
+            class="see-product-button"
+            :to="{ name: 'Product', params: { productSlug: product.slug } }"
+            >SEE PRODUCT</BaseButton
+          >
+        </ItemInShort>
+      </div>
     </div>
     <SelectCategory class="select-category" />
     <BestGear class="best-gear" />
@@ -30,8 +34,11 @@ import ItemInShort from '@/components/ItemInShort.vue';
 import SelectCategory from '@/components/SelectCategory.vue';
 import BestGear from '@/components/BestGear.vue';
 import Header from '@/components/layout/Header.vue';
+import screenSize from '@/mixins/screenSize';
 
 export default {
+  mixins: [screenSize],
+
   components: {
     ItemInShort,
     SelectCategory,
@@ -71,6 +78,7 @@ export default {
   background-color: var(--color-black);
   color: var(--color-white);
   margin-bottom: 16rem;
+  width: 100%;
 }
 
 .category-main {
@@ -79,6 +87,16 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 16rem;
+}
+
+.category-items {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 16rem;
+}
+
+.item-in-short {
+  flex-direction: row-reverse;
 }
 
 .see-product-button {
@@ -90,5 +108,41 @@ export default {
 
 .best-gear {
   margin-bottom: 16rem;
+}
+
+@media (max-width: 73em) {
+  .item-in-short {
+    flex-direction: row;
+  }
+
+  .category-header {
+    margin-bottom: 12rem;
+  }
+
+  .category-items {
+    gap: 12rem;
+  }
+
+  .category-main {
+    gap: 12rem;
+  }
+
+  .category-main {
+    text-align: center;
+    width: 89%;
+  }
+
+  .best-gear {
+    margin-bottom: 12rem;
+  }
+}
+
+@media (max-width: 72em) {
+  .d-flex-column {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 50em) {
 }
 </style>

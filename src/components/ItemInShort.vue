@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
 import ChangeQuantity from '@/components/ChangeQuantity.vue';
 export default {
   emits: ['add-product', 'increment-quantity', 'decrement-quantity'],
@@ -55,9 +54,6 @@ export default {
       required: false,
     },
   },
-  // computed: {
-  //   ...mapGetters(['itemQuantity']),
-  // },
 };
 </script>
 
@@ -107,5 +103,22 @@ export default {
   font-weight: var(--font-bold);
   font-size: 1.3rem;
   line-height: 1.78rem;
+}
+
+@media (max-width: 50em) {
+  .item-details {
+    margin: 0 10%;
+  }
+
+  .item-image {
+    width: 100%;
+    height: 35.2rem;
+    object-fit: contain;
+    background-color: #f1f1f1;
+  }
+
+  .item {
+    gap: 5.2rem;
+  }
 }
 </style>
