@@ -20,7 +20,7 @@ export default {
     onResize() {
       if (window.innerWidth <= 500) {
         this.screen = 'mobile';
-      } else if (window.innerWidth <= 785) {
+      } else if (window.innerWidth <= 800) {
         this.screen = 'tablet';
       } else {
         this.screen = 'desktop';

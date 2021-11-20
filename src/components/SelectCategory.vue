@@ -102,6 +102,23 @@ export default {
   margin-top: 1rem;
 }
 
+@media (max-width: 52em) {
+  .categories {
+    gap: 1rem;
+  }
+
+  .category {
+    width: 22.3rem;
+  }
+
+  /* .category-headphones-image {
+    height: 12.92rem;
+    width: 12.4rem;
+    margin-top: 0.4rem;
+    margin-left: 1rem;
+  } */
+}
+
 @media (max-width: 39em) {
   .categories {
     flex-direction: column;

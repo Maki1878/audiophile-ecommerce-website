@@ -57,6 +57,7 @@ span {
 
   .best-gear-description {
     margin: 0 9%;
+    text-align: center;
   }
 }
 

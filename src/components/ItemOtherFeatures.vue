@@ -5,8 +5,8 @@
         <h3>FEATURES</h3>
         <p class="item-features-text">{{ features }}</p>
       </div>
-      <div>
-        <h3>IN THE BOX</h3>
+      <div class="in-the-box">
+        <h3 class="in-the-box-title">IN THE BOX</h3>
         <div class="includes-list">
           <div v-for="item in includes" :key="item.item" class="includes-list-item">
             <span class="includes-list-item-quantity">{{ item.quantity }}x</span>
@@ -17,11 +17,23 @@
     </div>
     <div class="gallery">
       <div class="d-flex">
-        <img :src="firstGalleryImage" alt="first-gallery-image" />
-        <img :src="secondGalleryImage" alt="second-gallery-image" />
+        <img
+          :src="gallery.first[screen].slice(1)"
+          alt="first-gallery-image"
+          class="gallery-image-one"
+        />
+        <img
+          :src="gallery.second[screen].slice(1)"
+          alt="second-gallery-image"
+          class="gallery-image-two"
+        />
       </div>
       <div>
-        <img :src="thirdGalleryImage" alt="third-gallery-image" />
+        <img
+          :src="gallery.third[screen].slice(1)"
+          alt="third-gallery-image"
+          class="gallery-image-three"
+        />
       </div>
     </div>
     <div class="other-products">
@@ -30,7 +42,7 @@
         <div v-for="product in otherProducts" :key="product.name" class="other-product-item">
           <div>
             <img
-              :src="product.image[screenSize].slice(1)"
+              :src="product.image[screen].slice(1)"
               alt="other-product-image"
               class="other-product-image"
             />
@@ -49,7 +61,10 @@
 </template>
 
 <script>
+import screenSize from '@/mixins/screenSize';
+
 export default {
+  mixins: [screenSize],
   data() {
     return {
       screenSize: 'desktop',
@@ -76,17 +91,6 @@ export default {
       type: String,
       required: true,
       default: '',
-    },
-  },
-  computed: {
-    firstGalleryImage() {
-      return this.gallery.first.desktop.slice(1);
-    },
-    secondGalleryImage() {
-      return this.gallery.second.desktop.slice(1);
-    },
-    thirdGalleryImage() {
-      return this.gallery.third.desktop.slice(1);
     },
   },
 };
@@ -187,5 +191,60 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+@media (max-width: 50em) {
+  .item-container {
+    margin-top: 12rem;
+    gap: 12rem;
+  }
+
+  .item-details {
+    flex-direction: column;
+    gap: 12rem;
+  }
+
+  .item-features {
+    width: 100%;
+  }
+
+  .in-the-box {
+    display: flex;
+    gap: 1.1rem;
+  }
+
+  .in-the-box-title {
+    width: 33.9rem;
+  }
+
+  .gallery-image-one {
+    width: 27.7rem;
+  }
+
+  .gallery-image-two {
+    width: 27.7rem;
+  }
+
+  .gallery-image-three {
+    width: 39.5rem;
+    border-radius: 8px;
+  }
+
+  .d-flex {
+    gap: 2rem;
+  }
+
+  .other-product-image {
+    width: 22.3rem;
+  }
+
+  .other-products-items {
+    gap: 1.1rem;
+    margin-bottom: 14rem;
+  }
+
+  .other-products h3 {
+    margin-bottom: 5.6rem;
+  }
 }
 </style>
