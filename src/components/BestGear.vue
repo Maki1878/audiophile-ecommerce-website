@@ -1,7 +1,7 @@
 <template>
   <div class="best-gear-container">
     <div class="best-gear-description">
-      <h2>BRINGING YOU THE <span>BEST</span> AUDIO GEAR</h2>
+      <h2 class="best-gear-header">BRINGING YOU THE <span>BEST</span> AUDIO GEAR</h2>
       <p class="best-gear-text">
         Located at the heart of New York City, Audiophile is the premier store for high end
         headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury
@@ -57,6 +57,20 @@ span {
 
   .best-gear-description {
     margin: 0 9%;
+  }
+}
+
+@media (max-width: 39em) {
+  .best-gear-description {
+    margin: 0 2%;
+  }
+
+  .best-gear-container {
+    gap: 4rem;
+  }
+
+  .best-gear-header {
+    margin-bottom: -8px;
   }
 }
 </style>

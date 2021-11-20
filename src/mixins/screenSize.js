@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     onResize() {
-      if (window.innerWidth <= 375) {
+      if (window.innerWidth <= 500) {
         this.screen = 'mobile';
       } else if (window.innerWidth <= 785) {
         this.screen = 'tablet';

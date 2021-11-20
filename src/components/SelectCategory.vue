@@ -101,4 +101,17 @@ export default {
 .category-headphones-name {
   margin-top: 1rem;
 }
+
+@media (max-width: 39em) {
+  .categories {
+    flex-direction: column;
+    gap: 7rem;
+    margin-top: 5rem;
+    align-items: center;
+  }
+
+  .category {
+    width: 33rem;
+  }
+}
 </style>

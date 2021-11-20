@@ -107,7 +107,7 @@ export default {
 
 @media (max-width: 50em) {
   .item-details {
-    margin: 0 10%;
+    margin: 0 11%;
   }
 
   .item-image {
@@ -119,6 +119,27 @@ export default {
 
   .item {
     gap: 5.2rem;
+  }
+}
+
+@media (max-width: 50em) {
+  .item {
+    gap: 3.2rem;
+  }
+
+  .item-description {
+    margin-top: 2.4rem;
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 39em) {
+  .item-details {
+    margin: 0 1.6%;
+  }
+
+  .new-product {
+    margin-bottom: 2.4rem;
   }
 }
 </style>

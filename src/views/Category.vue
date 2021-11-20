@@ -1,7 +1,7 @@
 <template>
   <Header />
   <div class="category-header">
-    <h2>{{ categoryNameUpper }}</h2>
+    <h2 class="category-header-title">{{ categoryNameUpper }}</h2>
   </div>
   <div class="category-main">
     <div class="category-items">
@@ -143,6 +143,10 @@ export default {
   }
 }
 
-@media (max-width: 50em) {
+@media (max-width: 39em) {
+  .category-header {
+    height: 10rem;
+    margin-bottom: 6.4rem;
+  }
 }
 </style>
