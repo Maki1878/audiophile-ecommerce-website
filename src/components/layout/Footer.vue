@@ -150,5 +150,25 @@ export default {
   .logo-icon {
     align-self: center;
   }
+
+  .footer-text {
+    text-align: center;
+    margin-top: 4.8rem;
+    margin-bottom: 4.8rem;
+  }
+
+  .footer-container {
+    width: 88%;
+  }
+
+  .footer-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 4.8rem;
+  }
+
+  .orange-line {
+    margin-left: 16.6rem;
+  }
 }
 </style>
