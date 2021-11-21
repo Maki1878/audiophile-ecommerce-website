@@ -19,7 +19,7 @@
     @click="closeNavigation"
   ></div>
   <dialog open class="modal" v-if="screen !== 'desktop' && showNavigation === true">
-    <SelectCategory class="select-category" />
+    <SelectCategory class="select-category" @close-modal="closeNavigation" modal="modal" />
   </dialog>
 </template>
 
@@ -92,12 +92,10 @@ export default {
 }
 
 .modal {
-  position: absolute;
   top: 9rem;
-  margin: auto;
   width: 100%;
   height: 34rem;
-  /* z-index: 20; */
+  z-index: 20;
   border: none;
   overflow: hidden;
   background-color: white;
@@ -127,7 +125,7 @@ export default {
   }
 
   .select-category {
-    margin-top: 8.5rem;
+    margin-top: 5.5rem;
     margin-left: 3.9rem;
   }
 }

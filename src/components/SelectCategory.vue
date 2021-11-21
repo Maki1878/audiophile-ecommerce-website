@@ -1,5 +1,5 @@
 <template>
-  <div class="categories">
+  <div class="categories" :class="modal">
     <div class="category">
       <div class="category-container">
         <div class="category-headphones-image"></div>
@@ -8,28 +8,34 @@
           link
           mode="outline"
           :to="{ name: 'Category', params: { category: 'headphones' } }"
+          @click="$emit('close-modal')"
+          class="shop-button"
         />
       </div>
     </div>
     <div class="category">
       <div class="category-container">
         <div class="category-speakers-image"></div>
-        <h6>SPEAKERS</h6>
+        <h6 class="category-speakers-name">SPEAKERS</h6>
         <BaseButton
           link
           mode="outline"
           :to="{ name: 'Category', params: { category: 'speakers' } }"
+          @click="$emit('close-modal')"
+          class="shop-button"
         />
       </div>
     </div>
     <div class="category">
       <div class="category-container">
         <div class="category-earphones-image"></div>
-        <h6>EARPHONES</h6>
+        <h6 class="category-earphones-name">EARPHONES</h6>
         <BaseButton
           link
           mode="outline"
           :to="{ name: 'Category', params: { category: 'earphones' } }"
+          @click="$emit('close-modal')"
+          class="shop-button"
         />
       </div>
     </div>
@@ -38,12 +44,20 @@
 
 <script>
 export default {
+  emits: ['close-modal'],
   data() {
     return {
       headphonesImagePath: '/assets/shared/desktop/image-category-thumbnail-headphones.png',
       speakersImagePath: '/assets/shared/desktop/image-category-thumbnail-speakers.png',
       earphonesImagePath: '/assets/shared/desktop/image-category-thumbnail-earphones.png',
     };
+  },
+  props: {
+    modal: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
 };
 </script>
@@ -127,6 +141,27 @@ export default {
     width: 16rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
+  }
+
+  .modal .category {
+    width: 22.3rem;
+    height: 16.5rem;
+    margin-top: 5rem;
+  }
+
+  .modal .category-headphones-name,
+  .modal .category-speakers-name,
+  .modal .category-earphones-name {
+    margin-top: 0;
+  }
+
+  .modal .category-speakers-image,
+  .modal .category-earphones-image {
+    margin-bottom: -0.6rem;
+  }
+
+  .modal .shop-button {
+    margin-top: -1rem;
   }
 }
 
