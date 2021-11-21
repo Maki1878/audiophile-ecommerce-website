@@ -18,7 +18,7 @@
     v-if="screen !== 'desktop' && showNavigation === true"
     @click="closeNavigation"
   ></div>
-  <dialog open class="modal" v-if="screen !== 'desktop' && showNavigation === true">
+  <dialog open class="navigation-modal" v-if="screen !== 'desktop' && showNavigation === true">
     <SelectCategory class="select-category" @close-modal="closeNavigation" modal="modal" />
   </dialog>
 </template>
@@ -91,7 +91,7 @@ export default {
   /* z-index: 10; */
 }
 
-.modal {
+.navigation-modal {
   top: 9rem;
   width: 100%;
   height: 34rem;
@@ -127,12 +127,23 @@ export default {
   .select-category {
     margin-top: 5.5rem;
     margin-left: 3.9rem;
+    gap: 2.5rem;
   }
 }
 
 @media (max-width: 39em) {
   .logo-icon {
     margin: 0;
+  }
+
+  .navigation-modal {
+    height: 75rem;
+  }
+
+  .select-category {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2.5rem;
   }
 }
 </style>

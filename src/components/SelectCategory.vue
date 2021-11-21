@@ -176,5 +176,9 @@ export default {
   .category {
     width: 33rem;
   }
+
+  .modal .category {
+    width: 32.7rem;
+  }
 }
 </style>
