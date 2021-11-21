@@ -166,7 +166,7 @@ img {
   margin-bottom: 6.4rem;
 }
 .other-product-image {
-  border-radius: 0;
+  width: 34rem;
 }
 
 .other-products-items {
@@ -177,11 +177,15 @@ img {
 
 .other-product-image-container {
   width: 35rem;
+  height: 31.8rem;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .other-product-name {
   margin-top: 4rem;
-  margin-bottom: 3.2rem;
+  margin-bottom: 5rem;
 }
 
 .other-product-button {
