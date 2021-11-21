@@ -135,4 +135,20 @@ export default {
     height: 40rem;
   }
 }
+
+@media (max-width: 39em) {
+  .footer {
+    overflow: hidden;
+    height: 65.4rem;
+  }
+
+  .footer-header {
+    gap: 4.8rem;
+    padding-top: 5.2rem;
+  }
+
+  .logo-icon {
+    align-self: center;
+  }
+}
 </style>

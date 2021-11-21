@@ -12,7 +12,7 @@ export default {};
 </script>
 
 <style scoped>
-.navigation {
+/* .navigation {
   display: flex;
   justify-content: space-between;
   background-color: var(--color-black);
@@ -22,10 +22,15 @@ export default {};
   line-height: 25px;
   letter-spacing: 2px;
   gap: 3.4rem;
-}
+} */
 .navigation-links {
   display: flex;
-  gap: 3rem;
+  color: var(--color-white);
+  font-weight: var(--font-bold);
+  font-size: 13px;
+  line-height: 25px;
+  letter-spacing: 2px;
+  gap: 3.4rem;
 }
 a {
   color: var(--color-white);
@@ -35,5 +40,13 @@ a {
 a:hover,
 a:active {
   color: var(--color-orange-dark);
+}
+
+@media (max-width: 39em) {
+  .navigation-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.6rem;
+  }
 }
 </style>

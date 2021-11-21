@@ -89,3 +89,9 @@ h6 {
     letter-spacing: 2px;
   }
 }
+
+@media (max-width: 52em) {
+  body {
+    overflow-x: hidden;
+  }
+}
