@@ -111,12 +111,23 @@ export default {
     width: 22.3rem;
   }
 
-  /* .category-headphones-image {
+  .category-headphones-image {
     height: 12.92rem;
     width: 12.4rem;
     margin-top: 0.4rem;
     margin-left: 1rem;
-  } */
+  }
+  .category-speakers-image {
+    width: 14.4rem;
+    height: 14rem;
+    margin-bottom: 0.6rem;
+  }
+  .category-earphones-image {
+    height: 13rem;
+    width: 16rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
 }
 
 @media (max-width: 39em) {
