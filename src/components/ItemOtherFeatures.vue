@@ -2,7 +2,7 @@
   <div class="item-container">
     <div class="item-details">
       <div class="item-features">
-        <h3>FEATURES</h3>
+        <h3 class="item-features-title">FEATURES</h3>
         <p class="item-features-text">{{ features }}</p>
       </div>
       <div class="in-the-box">
@@ -40,7 +40,7 @@
       <h3>YOU MAY ALSO LIKE</h3>
       <div class="other-products-items">
         <div v-for="product in otherProducts" :key="product.name" class="other-product-item">
-          <div>
+          <div class="other-product-image-container">
             <img
               :src="product.image[screen].slice(1)"
               alt="other-product-image"
@@ -67,7 +67,7 @@ export default {
   mixins: [screenSize],
   data() {
     return {
-      screenSize: 'desktop',
+      screen: 'desktop',
     };
   },
   props: {
@@ -165,6 +165,9 @@ img {
   text-align: center;
   margin-bottom: 6.4rem;
 }
+.other-product-image {
+  border-radius: 0;
+}
 
 .other-products-items {
   display: flex;
@@ -172,7 +175,7 @@ img {
   margin-bottom: 16rem;
 }
 
-.other-product-image {
+.other-product-image-container {
   width: 35rem;
 }
 
@@ -227,7 +230,10 @@ img {
 
   .gallery-image-three {
     width: 39.5rem;
-    border-radius: 8px;
+  }
+
+  .gallery {
+    gap: 1.8rem;
   }
 
   .d-flex {
@@ -235,7 +241,9 @@ img {
   }
 
   .other-product-image {
-    width: 22.3rem;
+    width: 21.8rem;
+    height: 27.3rem;
+    margin-top: 9%;
   }
 
   .other-products-items {
@@ -245,6 +253,105 @@ img {
 
   .other-products h3 {
     margin-bottom: 5.6rem;
+  }
+
+  .other-product-image-container {
+    width: 22.3rem;
+    background-color: #f1f1f1;
+    height: 31.8rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .other-product-name {
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+  }
+}
+
+@media (max-width: 39em) {
+  .item-container {
+    margin-top: 8.8rem;
+  }
+
+  .item-features-title {
+    margin-bottom: 2.4rem;
+  }
+
+  .item-details {
+    gap: 8.8rem;
+  }
+
+  .in-the-box {
+    flex-direction: column;
+  }
+
+  .in-the-box-title {
+    margin-bottom: 2.4rem;
+  }
+
+  .includes-list-item {
+    gap: 0.8rem;
+  }
+
+  .item-container {
+    gap: 8.8rem;
+    margin-bottom: -4rem;
+  }
+
+  .gallery {
+    flex-direction: column;
+  }
+
+  .gallery-image-one {
+    width: 34rem;
+    height: 17.4rem;
+  }
+
+  .gallery-image-two {
+    width: 34rem;
+    height: 17.4rem;
+  }
+
+  .gallery-image-three {
+    width: 34rem;
+  }
+
+  .other-products {
+    margin-top: 3.2rem;
+  }
+
+  .other-products h3 {
+    margin-bottom: 4rem;
+  }
+
+  .other-products-items {
+    flex-direction: column;
+  }
+
+  .other-product-image-container {
+    width: 34rem;
+    height: 12rem;
+    margin-top: 3.2rem;
+  }
+
+  .other-product-image {
+    width: 33.3rem;
+    height: 11.5rem;
+    margin-top: 1%;
+  }
+
+  .other-products {
+    margin-top: 0;
+  }
+
+  .other-products h3 {
+    margin-bottom: 1.8rem;
+  }
+
+  .other-product-name {
+    margin-top: 3.2rem;
+    margin-bottom: 3.2rem;
   }
 }
 </style>

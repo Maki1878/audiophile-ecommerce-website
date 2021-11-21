@@ -3,16 +3,6 @@
   <CartModal v-if="showModal" @close-modal="closeModal" />
   <div class="product-container">
     <GoBack class="go-back-button" />
-
-    <!-- <ItemInShort
-      :image="product.image[screen].slice(1)"
-      :newProduct="newProduct"
-      :name="name"
-      :description="description"
-      :price="price"
-      @add-product="addToCart"
-    >
-    </ItemInShort> -->
     <div class="item">
       <div>
         <img :src="product.image[screen].slice(1)" alt="product-image" class="item-image" />
@@ -79,6 +69,7 @@ export default {
   data() {
     return {
       showModal: false,
+      screen: 'desktop',
     };
   },
   computed: {
@@ -234,6 +225,36 @@ export default {
   .best-gear {
     margin-top: -5rem;
     margin-bottom: 12rem;
+  }
+
+  .go-back-button {
+    margin-bottom: 2.4rem;
+  }
+}
+
+@media (max-width: 39em) {
+  .item {
+    flex-direction: column;
+    align-items: center;
+    gap: 3.2rem;
+  }
+
+  .item-image {
+    width: 32.7rem;
+    height: 32.7rem;
+  }
+
+  .new-product {
+    margin-bottom: 2.4rem;
+  }
+
+  .item-description {
+    margin-top: 2.4rem;
+  }
+
+  .item-price {
+    margin-top: 2.4rem;
+    margin-bottom: 3.1rem;
   }
 }
 </style>
