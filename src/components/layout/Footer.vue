@@ -104,4 +104,35 @@ export default {
   width: 10.01rem;
   background-color: var(--color-orange-dark);
 }
+
+@media (max-width: 52em) {
+  .footer-header {
+    flex-direction: column;
+    padding-top: 6rem;
+    gap: 3.2rem;
+  }
+
+  .logo-icon {
+    width: 14.3rem;
+    height: 2.5rem;
+  }
+
+  .footer-container {
+    width: 90%;
+  }
+
+  .footer-text {
+    width: 100%;
+    margin-top: 3.2rem;
+    margin-bottom: 8rem;
+  }
+
+  .footer-icons {
+    margin-top: 0;
+  }
+
+  .footer {
+    height: 40rem;
+  }
+}
 </style>
