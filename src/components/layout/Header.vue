@@ -1,16 +1,31 @@
 <template>
   <div class="navigation" :class="mode">
     <div class="navigation-container">
-      <img :src="hamburgerIconPath" class="hamburger-icon" alt="logo" v-if="screen !== 'desktop'" />
+      <img
+        :src="hamburgerIconPath"
+        class="hamburger-icon"
+        alt="logo"
+        v-if="screen !== 'desktop'"
+        @click="openNavigation"
+      />
       <img :src="logoIconPath" class="logo-icon" alt="logo" />
       <Navbar v-if="screen === 'desktop'" />
       <img :src="cartIconPath" class="cart-icon" alt="cart" />
     </div>
   </div>
+  <div
+    class="backdrop"
+    v-if="screen !== 'desktop' && showNavigation === true"
+    @click="closeNavigation"
+  ></div>
+  <dialog open class="modal" v-if="screen !== 'desktop' && showNavigation === true">
+    <SelectCategory class="select-category" />
+  </dialog>
 </template>
 
 <script>
 import Navbar from '../Navbar.vue';
+import SelectCategory from '@/components/SelectCategory.vue';
 import screenSize from '@/mixins/screenSize';
 export default {
   mixins: [screenSize],
@@ -23,14 +38,23 @@ export default {
   },
   components: {
     Navbar,
+    SelectCategory,
   },
   data() {
     return {
       logoIconPath: '/assets/shared/desktop/logo.svg',
       cartIconPath: '/assets/shared/desktop/icon-cart.svg',
       hamburgerIconPath: '/assets/shared/tablet/icon-hamburger.svg',
-      screenSize: 'desktop',
+      showNavigation: false,
     };
+  },
+  methods: {
+    closeNavigation() {
+      this.showNavigation = false;
+    },
+    openNavigation() {
+      this.showNavigation = true;
+    },
   },
 };
 </script>
@@ -40,6 +64,7 @@ export default {
   background-color: var(--color-black);
   color: var(--color-white);
   height: 9.7rem;
+  /* z-index: 30; */
 }
 
 .navigation-container {
@@ -56,6 +81,37 @@ export default {
   background-color: #141414;
 }
 
+.backdrop {
+  position: fixed;
+  top: 8.9rem;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  /* z-index: 10; */
+}
+
+.modal {
+  position: absolute;
+  top: 9rem;
+  margin: auto;
+  width: 100%;
+  height: 34rem;
+  /* z-index: 20; */
+  border: none;
+  overflow: hidden;
+  background-color: white;
+}
+
+.hamburger-icon {
+  cursor: pointer;
+}
+
+.hamburger-icon:hover {
+  cursor: pointer;
+  filter: invert(71%) sepia(12%) saturate(5375%) hue-rotate(326deg) brightness(90%) contrast(86%);
+}
+
 @media (max-width: 52em) {
   .navigation {
     height: 9rem;
@@ -68,6 +124,17 @@ export default {
   .logo-icon {
     margin-right: auto;
     margin-left: 4.2rem;
+  }
+
+  .select-category {
+    margin-top: 8.5rem;
+    margin-left: 3.9rem;
+  }
+}
+
+@media (max-width: 39em) {
+  .logo-icon {
+    margin: 0;
   }
 }
 </style>
