@@ -65,11 +65,6 @@ import screenSize from '@/mixins/screenSize';
 
 export default {
   mixins: [screenSize],
-  data() {
-    return {
-      screen: 'desktop',
-    };
-  },
   props: {
     features: {
       type: String,

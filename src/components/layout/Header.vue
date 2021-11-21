@@ -1,14 +1,9 @@
 <template>
   <div class="navigation" :class="mode">
     <div class="navigation-container">
-      <img
-        :src="hamburgerIconPath"
-        class="hamburger-icon"
-        alt="logo"
-        v-if="screenSize !== 'desktop'"
-      />
+      <img :src="hamburgerIconPath" class="hamburger-icon" alt="logo" v-if="screen !== 'desktop'" />
       <img :src="logoIconPath" class="logo-icon" alt="logo" />
-      <Navbar v-if="screenSize === 'desktop'" />
+      <Navbar v-if="screen === 'desktop'" />
       <img :src="cartIconPath" class="cart-icon" alt="cart" />
     </div>
   </div>
@@ -16,7 +11,9 @@
 
 <script>
 import Navbar from '../Navbar.vue';
+import screenSize from '@/mixins/screenSize';
 export default {
+  mixins: [screenSize],
   props: {
     mode: {
       type: String,
@@ -42,7 +39,7 @@ export default {
 .navigation {
   background-color: var(--color-black);
   color: var(--color-white);
-  height: 97px;
+  height: 9.7rem;
 }
 
 .navigation-container {
@@ -57,5 +54,20 @@ export default {
 
 .background {
   background-color: #141414;
+}
+
+@media (max-width: 52em) {
+  .navigation {
+    height: 9rem;
+  }
+
+  .navigation-container {
+    width: 90%;
+  }
+
+  .logo-icon {
+    margin-right: auto;
+    margin-left: 4.2rem;
+  }
 }
 </style>
