@@ -72,4 +72,10 @@ export default {
 .slot {
   margin-top: -25px;
 }
+
+@media (max-width: 39em) {
+  .slot {
+    margin-top: 0;
+  }
+}
 </style>

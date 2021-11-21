@@ -153,4 +153,19 @@ export default {
 .change-quantity-quantity {
   display: contents;
 }
+
+@media (max-width: 86em) {
+  .modal {
+    top: 2.4rem;
+    left: auto;
+    right: 4rem;
+  }
+}
+
+@media (max-width: 39em) {
+  .modal {
+    margin: 0 auto;
+    height: 50.8rem;
+  }
+}
 </style>
