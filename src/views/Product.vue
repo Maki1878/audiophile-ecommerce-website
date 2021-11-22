@@ -21,7 +21,8 @@
       </div>
     </div>
     <ItemOtherFeatures
-      :features="features"
+      :featuresOne="featuresOne"
+      :featuresTwo="featuresTwo"
       :includes="includes"
       :gallery="gallery"
       :otherProducts="others"
@@ -94,8 +95,11 @@ export default {
     cartItem() {
       return this.product;
     },
-    features() {
-      return this.product.features;
+    featuresOne() {
+      return this.product.features.split('\n\n')[0];
+    },
+    featuresTwo() {
+      return this.product.features.split('\n\n')[1];
     },
     includes() {
       return this.product.includes;

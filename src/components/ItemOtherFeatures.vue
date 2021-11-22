@@ -3,7 +3,8 @@
     <div class="item-details">
       <div class="item-features">
         <h3 class="item-features-title">FEATURES</h3>
-        <p class="item-features-text">{{ features }}</p>
+        <p class="item-features-text features-one">{{ featuresOne }}</p>
+        <p class="item-features-text features-two">{{ featuresTwo }}</p>
       </div>
       <div class="in-the-box">
         <h3 class="in-the-box-title">IN THE BOX</h3>
@@ -66,7 +67,11 @@ import screenSize from '@/mixins/screenSize';
 export default {
   mixins: [screenSize],
   props: {
-    features: {
+    featuresOne: {
+      type: String,
+      required: true,
+    },
+    featuresTwo: {
       type: String,
       required: true,
     },
@@ -111,6 +116,10 @@ export default {
 .item-features-text {
   width: 100%;
   opacity: 0.5;
+}
+
+.features-one {
+  margin-bottom: 2.2rem;
 }
 
 h3 {
