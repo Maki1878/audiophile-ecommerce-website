@@ -1,11 +1,5 @@
 <template>
-  <Header />
-  <!-- <div v-if="showConfirmationModal" class="backdrop" @click="closeModal">
-    <dialog open class="dialog">
-      <p>GRAND TOTAL {{ grandTotal }}</p>
-      <router-link :to="{ name: 'Home' }">BACK TO HOME</router-link>
-    </dialog>
-  </div> -->
+  <Header class="header" mode="top" />
   <ConfirmationModal v-if="showConfirmationModal"></ConfirmationModal>
   <div class="background">
     <div class="checkout">

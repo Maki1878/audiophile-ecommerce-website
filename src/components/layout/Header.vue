@@ -110,6 +110,11 @@ export default {
   filter: invert(71%) sepia(12%) saturate(5375%) hue-rotate(326deg) brightness(90%) contrast(86%);
 }
 
+.top {
+  position: relative;
+  z-index: 30;
+}
+
 @media (max-width: 52em) {
   .navigation {
     height: 9rem;
@@ -144,6 +149,10 @@ export default {
     width: 90%;
     margin: 0 auto;
     margin-top: 2.5rem;
+  }
+
+  .top {
+    position: unset;
   }
 }
 </style>

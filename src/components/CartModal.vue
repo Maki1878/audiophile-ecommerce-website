@@ -73,7 +73,7 @@ export default {
 }
 .modal {
   position: fixed;
-  top: 3.2rem;
+  top: 13rem;
   left: 89.8rem;
   width: 37.7rem;
   z-index: 100;
@@ -156,7 +156,7 @@ export default {
 
 @media (max-width: 86em) {
   .modal {
-    top: 2.4rem;
+    top: 12rem;
     left: auto;
     right: 4rem;
   }
@@ -165,7 +165,9 @@ export default {
 @media (max-width: 39em) {
   .modal {
     margin: 0 auto;
-    height: 50.8rem;
+    left: 2rem;
+    right: 2rem;
+    width: 32.7rem;
   }
 }
 </style>

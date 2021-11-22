@@ -1,5 +1,5 @@
 <template>
-  <Header />
+  <Header mode="top" />
   <CartModal v-if="showModal" @close-modal="closeModal" />
   <div class="product-container">
     <GoBack class="go-back-button" />

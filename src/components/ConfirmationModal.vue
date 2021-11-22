@@ -62,7 +62,7 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 10;
@@ -123,6 +123,7 @@ export default {
   flex: 1;
   border-radius: 0 8px 8px 0;
   color: var(--color-white);
+  height: auto;
 }
 
 .modal-total-item-quantity {
@@ -164,5 +165,76 @@ export default {
 
 .grand-total-title {
   opacity: 50%;
+}
+
+.modal-total-item-quantity {
+  display: inline;
+}
+
+@media (max-width: 86em) {
+  .modal {
+    top: 13.2rem;
+  }
+
+  .backdrop {
+    top: 8.9rem;
+  }
+}
+
+@media (max-width: 39em) {
+  .modal {
+    top: 22.4rem;
+    margin: 0 auto;
+    width: 32.7rem;
+    height: auto;
+    padding: 3.2rem;
+  }
+
+  .modal-header {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+  }
+
+  .modal-info {
+    margin-top: 1.6rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .modal-total {
+    flex-direction: column;
+  }
+
+  .modal-total-items {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+  }
+
+  .modal-total-item-quantity {
+    display: block;
+    margin-top: -2rem;
+  }
+
+  .modal-total-amount {
+    border-radius: 0 0 8px 8px;
+    height: 9.2rem;
+  }
+
+  .home-button {
+    margin-top: 12rem;
+  }
+
+  .modal-total-amount-container {
+    margin-left: 2.4rem;
+    margin-top: 1.5rem;
+    height: 9.2rem;
+  }
+
+  .cart-icon {
+    margin-bottom: 2.2rem;
+  }
+
+  .backdrop {
+    top: 0;
+  }
 }
 </style>
