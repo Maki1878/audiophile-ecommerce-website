@@ -11,7 +11,7 @@
         :key="item.name"
         :image="`/assets/cart/image-${item.slug}.jpg`"
         :name="item.name"
-        :price="item.price"
+        :price="item.price.toLocaleString('en-US')"
       >
         <div class="change-quantity-container">
           <button @click="decrementCartItemQuantity(item)" class="change-quantity-operator">
@@ -27,7 +27,7 @@
       </CartItem>
       <div class="modal-total">
         <span class="modal-total-title">TOTAL</span>
-        <h6 class="modal-total-price">$ {{ total }}</h6>
+        <h6 class="modal-total-price">$ {{ total.toLocaleString('en-US') }}</h6>
       </div>
       <BaseButton
         :disable="cartItemsQuantity > 0 ? 'not' : 'disable'"

@@ -90,7 +90,7 @@ export default {
       return this.product.description;
     },
     price() {
-      return this.product.price;
+      return this.product.price.toLocaleString('en-US');
     },
     cartItem() {
       return this.product;

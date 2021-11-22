@@ -12,7 +12,7 @@
     </CartItem>
     <div class="d-flex">
       <span class="title">TOTAL</span>
-      <span class="amount">$ {{ total }}</span>
+      <span class="amount">$ {{ total.toLocaleString('en-US') }}</span>
     </div>
     <div class="d-flex">
       <span class="title">SHIPPING</span>
@@ -24,7 +24,7 @@
     </div>
     <div class="d-flex grand-total">
       <span class="title">GRAND TOTAL</span>
-      <span class="grand-total-amount amount">$ {{ grandTotal }}</span>
+      <span class="grand-total-amount amount">$ {{ grandTotal.toLocaleString('en-US') }}</span>
     </div>
     <BaseButton @click="$emit('show-modal')" mode="width" class="pay-button"
       >COUNTINUE &#38; PAY</BaseButton

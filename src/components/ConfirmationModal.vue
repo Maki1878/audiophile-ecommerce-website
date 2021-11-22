@@ -14,7 +14,7 @@
         <CartItem
           :image="`/assets/cart/image-${firstCartItem.slug}.jpg`"
           :name="firstCartItem.name"
-          :price="firstCartItem.price"
+          :price="firstCartItem.price.toLocaleString('en-US')"
           class="modal-total-item"
         >
           <span class="modal-total-item-quantity">x{{ firstCartItem.quantity }}</span>
@@ -25,7 +25,7 @@
       <div class="modal-total-amount">
         <div class="modal-total-amount-container">
           <span class="grand-total-title">GRAND TOTAL</span>
-          <h6>$ {{ grandTotal }}</h6>
+          <h6>$ {{ grandTotal.toLocaleString('en-US') }}</h6>
         </div>
       </div>
     </div>
