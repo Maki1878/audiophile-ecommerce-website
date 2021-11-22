@@ -180,5 +180,9 @@ export default {
   .modal .category {
     width: 32.7rem;
   }
+
+  .modal {
+    gap: 2rem;
+  }
 }
 </style>

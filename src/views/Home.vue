@@ -298,12 +298,16 @@ export default {
 @media (max-width: 39em) {
   .home-header {
     text-align: center;
+    height: 60rem;
+    margin-top: -10rem;
+    background-size: cover;
+    background-position-x: 75%;
   }
 
   .home-header-text {
     width: 90%;
     margin: 0 auto;
-    margin-top: 12.6rem;
+    margin-top: 19.6rem;
   }
 
   .home-header-product-name {
@@ -319,6 +323,66 @@ export default {
 
   .see-product-button {
     margin-top: 4rem;
+  }
+
+  .home-main {
+    margin-top: -1.6rem;
+    gap: 12rem;
+  }
+
+  .home-product-one-heading {
+    font-size: 3.6rem;
+    line-height: 4rem;
+    padding: 0 6rem;
+  }
+
+  .home-product-one-image {
+    background-image: url('/assets/home/mobile/image-speaker-zx9.png');
+    margin-top: 5.5rem;
+    height: 20.7rem;
+    width: 17.72rem;
+  }
+
+  .home-product-one {
+    height: 60rem;
+    gap: 3.2rem;
+  }
+
+  .home-product-two {
+    background-image: url('/assets/home/mobile/image-speaker-zx7.jpg');
+    margin-top: 2.4rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .home-product-two-text {
+    margin-left: 3rem;
+  }
+
+  .see-product-button {
+    margin-top: 5rem;
+  }
+
+  .home-product-three {
+    flex-direction: column;
+    gap: 2.4rem;
+  }
+
+  .home-product-three-text {
+    width: 100%;
+  }
+
+  .home-product-three {
+    margin-bottom: 14rem;
+  }
+
+  .home-product-three-description {
+    margin-left: 2.4rem;
+    margin-top: 4.1rem;
+    height: 20rem;
+  }
+
+  .home-product-three-image {
+    height: 20rem;
   }
 }
 </style>
