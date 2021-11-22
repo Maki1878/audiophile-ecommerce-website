@@ -448,35 +448,21 @@ label {
   font-size: 1.4rem;
 }
 
-/* input[type='radio']:after {
-  width: 10px;
-  height: 10px;
-  border-radius: 15px;
-  top: 21px;
-  left: 3.1px;
-  position: relative;
-  background-color: var(--color-orange-dark);
-  content: '';
-  display: inline-block;
-  visibility: visible;
-  border: 2px solid white;
-} */
-
 @media (max-width: 75em) {
   .checkout-container {
     flex-direction: column;
     align-items: center;
-    width: 90%;
-    margin: auto;
   }
 
   .checkout {
     padding-top: 3.2rem;
+    width: 90%;
+    margin: auto;
   }
 
   .go-back-button {
-    margin-left: 5%;
     margin-bottom: 2.4rem;
+    margin-left: 5%;
   }
 
   .subtitle {
@@ -507,6 +493,92 @@ label {
   .summary {
     width: 100%;
     margin-bottom: 11.6rem;
+  }
+}
+
+@media (max-width: 43em) {
+  .checkout {
+    padding-top: 0;
+  }
+
+  .billing-name-email {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .checkout-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .checkout-form {
+    padding: 2.4rem 2.4rem 3.1rem 2.3rem;
+    width: 90%;
+  }
+
+  input,
+  .address-input {
+    width: 100%;
+  }
+
+  .billing-details {
+    margin-top: 3.2rem;
+  }
+
+  .form-input {
+    margin-top: 2.4rem;
+    width: 100%;
+  }
+
+  .shipping-info {
+    margin-top: 3.2rem;
+  }
+  .shipping-zip-code-city {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .payment-details {
+    margin-top: 3.2rem;
+  }
+
+  .payment-method {
+    flex-direction: column;
+  }
+
+  .emoney-info {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .emoney-number {
+    margin-top: 3.2rem;
+  }
+
+  .emoney-pin {
+    margin-top: 3.2rem;
+  }
+
+  .go-back-button {
+    padding-left: 5%;
+  }
+
+  .summary {
+    padding: 3.2rem 2.4rem;
+    width: 90%;
+    margin-bottom: 9.7rem;
+  }
+
+  .checkout {
+    width: 100%;
+  }
+
+  .checkout-container {
+    gap: 3.2rem;
+  }
+
+  .radio-buttons {
+    width: 100%;
   }
 }
 </style>

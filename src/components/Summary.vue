@@ -93,4 +93,8 @@ export default {
   font-size: 1.3rem;
   line-height: 1.78rem;
 }
+
+.item-quantity {
+  margin-top: -2.5rem;
+}
 </style>
