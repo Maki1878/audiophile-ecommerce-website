@@ -19,7 +19,7 @@
       <span class="amount">$ {{ shipping }}</span>
     </div>
     <div class="d-flex">
-      <span class="title" n>VAT</span>
+      <span class="title" n>VAT (INCLUDED)</span>
       <span class="amount">$ {{ valueAddedTax }}</span>
     </div>
     <div class="d-flex grand-total">

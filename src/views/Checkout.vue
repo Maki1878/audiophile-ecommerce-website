@@ -3,7 +3,7 @@
   <ConfirmationModal v-if="showConfirmationModal"></ConfirmationModal>
   <div class="background">
     <div class="checkout">
-      <GoBack />
+      <GoBack class="go-back-button" />
 
       <div class="checkout-container">
         <div class="checkout-form">
@@ -431,29 +431,6 @@ input {
   border: 2px solid #cd2c2c;
 }
 
-/* .backdrop {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
-  z-index: 10;
-}
-
-.dialog {
-  position: absolute;
-  top: 12rem;
-  margin: auto;
-  width: 54rem;
-  height: 58rem;
-  z-index: 100;
-  border-radius: 12px;
-  border: none;
-  overflow: hidden;
-  background-color: white;
-} */
-
 label {
   font-weight: var(--font-bold);
   font-size: 1.2rem;
@@ -484,4 +461,52 @@ label {
   visibility: visible;
   border: 2px solid white;
 } */
+
+@media (max-width: 75em) {
+  .checkout-container {
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+  }
+
+  .checkout {
+    padding-top: 3.2rem;
+  }
+
+  .go-back-button {
+    margin-left: 5%;
+    margin-bottom: 2.4rem;
+  }
+
+  .subtitle {
+    margin-bottom: -1rem;
+  }
+
+  .checkout-form {
+    padding: 3rem 2.7rem;
+    margin-bottom: 0;
+  }
+
+  .shipping-info {
+    margin-top: 5.3rem;
+  }
+
+  .shipping-address {
+    margin-top: 1.6rem;
+  }
+
+  .form-input {
+    margin-top: 1.6rem;
+  }
+
+  .payment-method {
+    margin-top: 1.6rem;
+  }
+
+  .summary {
+    width: 100%;
+    margin-bottom: 11.6rem;
+  }
+}
 </style>
