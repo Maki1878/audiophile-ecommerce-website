@@ -15,7 +15,7 @@ export default {
       this.screen = 'mobile';
       return;
     } else if (window.innerWidth <= 800) {
-      this.screen = 'mobile';
+      this.screen = 'tablet';
       return;
     } else {
       this.screen = 'desktop';

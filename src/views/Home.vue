@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="home-main">
-    <SelectCategory />
+    <SelectCategory modal="modal" />
     <div class="home-products">
       <div class="home-product-one">
         <div class="home-product-one-image"></div>
@@ -84,21 +84,19 @@
 import SelectCategory from '@/components/SelectCategory.vue';
 import BestGear from '@/components/BestGear.vue';
 import Header from '@/components/layout/Header.vue';
+import screenSize from '@/mixins/screenSize';
 
 export default {
   name: 'Home',
+  mixins: [screenSize],
   components: {
     SelectCategory,
     BestGear,
     Header,
   },
   computed: {
-    // ...mapGetters(['products']),
-    // markTwoHeadphones() {
-    //   return this.products.find((product) => product.id === 4);
-    // },
     earphonesImage() {
-      return '/assets/home/desktop/image-earphones-yx1.jpg';
+      return `/assets/home/${this.screen}/image-earphones-yx1.jpg`;
     },
   },
 };
@@ -242,5 +240,58 @@ export default {
   margin-top: 10.1rem;
   display: inline-block;
   margin-bottom: -1rem;
+}
+
+@media (max-width: 78em) {
+  .home-header {
+    background-image: url('/assets/home/desktop/image-hero.jpg');
+    background-repeat: no-repeat;
+    background-size: unset;
+    height: 64rem;
+    background-position-x: 90%;
+    background-position-y: 100%;
+    background-color: #0e0e0e;
+  }
+
+  .home-header-text {
+    text-align: center;
+  }
+
+  .home-main {
+    width: 90%;
+    margin-top: 9.6rem;
+  }
+
+  .home-product-one {
+    height: 68.9rem;
+    flex-direction: column;
+    gap: 6.4rem;
+  }
+
+  .home-product-one-image {
+    background-image: url('/assets/home/tablet/image-speaker-zx9.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 21.7rem;
+    width: 19.71rem;
+    align-self: center;
+    margin-bottom: -0.3rem;
+    margin-top: 5.2rem;
+    margin-right: 11rem;
+  }
+
+  .home-product-one-text {
+    text-align: center;
+  }
+
+  .home-product-two {
+    background-image: url('/assets/home/tablet/image-speaker-zx7.jpg');
+    margin-top: 3.2rem;
+    margin-bottom: 3.2rem;
+  }
+
+  .home-product-three {
+    gap: 1.1rem;
+  }
 }
 </style>
