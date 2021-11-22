@@ -294,4 +294,31 @@ export default {
     gap: 1.1rem;
   }
 }
+
+@media (max-width: 39em) {
+  .home-header {
+    text-align: center;
+  }
+
+  .home-header-text {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 12.6rem;
+  }
+
+  .home-header-product-name {
+    font-size: 3.6rem;
+    line-height: 4rem;
+    margin-top: 1.6rem;
+  }
+
+  .home-header-product-description {
+    width: 32.8rem;
+    display: inline;
+  }
+
+  .see-product-button {
+    margin-top: 4rem;
+  }
+}
 </style>
