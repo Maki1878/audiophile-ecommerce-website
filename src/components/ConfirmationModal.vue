@@ -1,8 +1,8 @@
 <template>
   <div class="backdrop"></div>
   <dialog open class="modal">
-    <div class="cart-icon">
-      <img :src="cartIconPath" alt="cart" />
+    <div class="done-icon-container">
+      <div class="done-icon"></div>
     </div>
     <h3 class="modal-header">
       THANK YOU <br />
@@ -77,6 +77,18 @@ export default {
 </script>
 
 <style scoped>
+.done-icon {
+  width: 25.55px;
+  height: 14.8px;
+  position: absolute;
+  left: 12.73%;
+  right: 83.09%;
+  top: 12%;
+  bottom: 84.84%;
+  transform: rotate(310deg);
+  border-bottom: 4px solid #ffffff;
+  border-left: 4px solid #ffffff;
+}
 .backdrop {
   position: fixed;
   top: 0;
@@ -89,7 +101,7 @@ export default {
 
 .modal {
   position: absolute;
-  top: 12rem;
+  top: 9rem;
   margin: auto;
   width: 54rem;
   height: auto;
@@ -102,7 +114,7 @@ export default {
   margin-top: 12.5rem;
 }
 
-.cart-icon {
+.done-icon-container {
   background-color: var(--color-orange-dark);
   height: 64px;
   width: 64px;
@@ -252,8 +264,13 @@ export default {
     position: unset;
   }
 
-  .cart-icon {
+  .done-icon-container {
     margin-bottom: 2.2rem;
+  }
+
+  .done-icon {
+    left: 15.73%;
+    top: 9%;
   }
 
   .backdrop {

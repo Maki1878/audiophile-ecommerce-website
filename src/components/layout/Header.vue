@@ -64,7 +64,8 @@ export default {
   background-color: var(--color-black);
   color: var(--color-white);
   height: 9.7rem;
-  /* z-index: 30; */
+  position: relative;
+  z-index: 3;
 }
 
 .navigation-container {
@@ -88,12 +89,12 @@ export default {
 
 .backdrop {
   position: fixed;
-  top: 8.9rem;
+  top: 0rem;
   left: 0;
   height: 100vh;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.75);
-  /* z-index: 10; */
+  z-index: 2;
 }
 
 .navigation-modal {

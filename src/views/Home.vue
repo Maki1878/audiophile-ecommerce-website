@@ -13,7 +13,7 @@
         link
         :to="{
           name: 'Product',
-          params: { category: 'speakers', productSlug: 'xx99-mark-two-headphones' },
+          params: { category: 'headphones', productSlug: 'xx99-mark-two-headphones' },
         }"
         >SEE PRODUCT</BaseButton
       >
