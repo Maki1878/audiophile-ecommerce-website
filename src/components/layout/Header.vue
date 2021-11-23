@@ -81,6 +81,11 @@ export default {
   background-color: #141414;
 }
 
+.background .navigation-container {
+  position: relative;
+  z-index: 50;
+}
+
 .backdrop {
   position: fixed;
   top: 8.9rem;

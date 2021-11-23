@@ -1,5 +1,5 @@
 <template>
-  <Header mode="background" />
+  <Header mode="background" class="header" />
   <div class="home-header">
     <div class="home-header-text">
       <p class="home-header-new-product">NEW PRODUCT</p>
@@ -42,6 +42,7 @@
           >
         </div>
       </div>
+      <img :src="circlesPath" alt="circles" class="circles" />
       <div class="home-product-two">
         <div class="home-product-two-text">
           <h4 class="home-product-two-heading">ZX7 SPEAKER</h4>
@@ -94,6 +95,11 @@ export default {
     SelectCategory,
     BestGear,
     Header,
+  },
+  data() {
+    return {
+      circlesPath: '/assets/home/desktop/pattern-circles.svg',
+    };
   },
   computed: {
     earphonesImage() {
@@ -182,12 +188,16 @@ export default {
   align-self: flex-end;
   margin-bottom: -0.3rem;
   margin-left: 11.74rem;
+  position: relative;
+  z-index: 1;
 }
 
 .home-product-one-text {
   height: 30.3rem;
   width: 34.9rem;
   align-self: center;
+  position: relative;
+  z-index: 1;
 }
 
 .home-product-one-heading {
@@ -199,6 +209,12 @@ export default {
   opacity: 0.75;
   height: 7.5rem;
   margin-top: 2.4rem;
+}
+
+.circles {
+  position: absolute;
+  top: 108rem;
+  left: 5rem;
 }
 
 .see-product-button {
@@ -213,6 +229,7 @@ export default {
   margin-top: 4.8rem;
   margin-bottom: 4.8rem;
   border-radius: 8px;
+  position: relative;
 }
 
 .home-product-two-text {
@@ -288,6 +305,11 @@ export default {
     margin-right: 11rem;
   }
 
+  .circles {
+    top: 83rem;
+    left: -8rem;
+  }
+
   .home-product-one-text {
     text-align: center;
   }
@@ -354,6 +376,13 @@ export default {
   .home-product-one {
     height: 60rem;
     gap: 3.2rem;
+  }
+
+  .circles {
+    top: 131rem;
+    left: -9rem;
+    height: 55.8rem;
+    width: 55.8rem;
   }
 
   .home-product-two {
