@@ -177,8 +177,6 @@ import Summary from '@/components/Summary.vue';
 import ConfirmationModal from '@/components/ConfirmationModal.vue';
 import Header from '@/components/layout/Header.vue';
 
-// import { mapGetters } from 'vuex';
-
 export default {
   components: {
     Summary,
@@ -233,7 +231,6 @@ export default {
     };
   },
   computed: {
-    // ...mapGetters(['grandTotal']),
     showCashDeliveryDescription() {
       return this.payment.val === 'cash' ? true : false;
     },

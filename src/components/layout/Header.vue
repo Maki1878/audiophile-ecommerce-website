@@ -1,5 +1,5 @@
 <template>
-  <div class="navigation" :class="mode">
+  <div class="navigation" v-bind="$attrs" :class="mode">
     <div class="navigation-container">
       <img
         :src="hamburgerIconPath"

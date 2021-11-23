@@ -12,17 +12,6 @@ export default {};
 </script>
 
 <style scoped>
-/* .navigation {
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--color-black);
-  color: var(--color-white);
-  font-weight: var(--font-bold);
-  font-size: 13px;
-  line-height: 25px;
-  letter-spacing: 2px;
-  gap: 3.4rem;
-} */
 .navigation-links {
   display: flex;
   color: var(--color-white);
