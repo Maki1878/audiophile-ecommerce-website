@@ -124,5 +124,8 @@ export default {
       let [firstItem] = getters.cartItems;
       return firstItem;
     },
+    restCartItems(state) {
+      return state.cart.slice(1);
+    },
   },
 };

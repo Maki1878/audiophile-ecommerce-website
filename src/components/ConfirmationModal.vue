@@ -19,8 +19,22 @@
         >
           <span class="modal-total-item-quantity">x{{ firstCartItem.quantity }}</span>
         </CartItem>
-
-        <p class="modal-total-other-items">and {{ cartItems.length - 1 }} other item(s)</p>
+        <template v-if="showRestItems">
+          <CartItem
+            v-for="item in restCartItems"
+            :key="item.slug"
+            :image="`/assets/cart/image-${item.slug}.jpg`"
+            :name="item.name"
+            :price="item.price.toLocaleString('en-US')"
+            class="modal-total-item"
+          >
+            <span class="modal-total-item-quantity">x{{ item.quantity }}</span>
+          </CartItem>
+        </template>
+        <p class="modal-total-other-items" @click="showRestItems = true" v-if="!showRestItems">
+          and {{ restCartItems.length }} other item(s)
+        </p>
+        <p class="modal-total-other-items" @click="showRestItems = false" v-else>View less</p>
       </div>
       <div class="modal-total-amount">
         <div class="modal-total-amount-container">
@@ -29,7 +43,7 @@
         </div>
       </div>
     </div>
-    <BaseButton link :to="{ name: 'Home' }" mode="width" class="home-button" @click="emptyCart"
+    <BaseButton link :to="{ name: 'Home' }" mode="width" class="home-button" @click="clearCart"
       >BACK TO HOME</BaseButton
     >
   </dialog>
@@ -46,13 +60,18 @@ export default {
   data() {
     return {
       cartIconPath: '/assets/shared/desktop/icon-cart.svg',
+      showRestItems: false,
     };
   },
   computed: {
-    ...mapGetters(['grandTotal', 'firstCartItem', 'cartItems']),
+    ...mapGetters(['grandTotal', 'firstCartItem', 'restCartItems']),
   },
   methods: {
-    ...mapActions(['emptyCart']),
+    ...mapActions(['emptyCart', 'clearLocalStorage']),
+    clearCart() {
+      this.clearLocalStorage();
+      this.emptyCart();
+    },
   },
 };
 </script>
@@ -73,7 +92,7 @@ export default {
   top: 12rem;
   margin: auto;
   width: 54rem;
-  height: 58rem;
+  height: auto;
   z-index: 100;
   border-radius: 8px;
   border: none;
@@ -105,7 +124,7 @@ export default {
 }
 
 .modal-total {
-  height: 14rem;
+  height: auto;
   display: flex;
 }
 
@@ -144,6 +163,7 @@ export default {
   line-height: 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
   padding-top: 12px;
+  cursor: pointer;
 }
 
 .home-button {
@@ -159,8 +179,9 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-left: 32px;
-  margin-top: 41px;
+  position: absolute;
+  bottom: 18.5rem;
+  left: 33rem;
 }
 
 .grand-total-title {
@@ -217,16 +238,18 @@ export default {
   .modal-total-amount {
     border-radius: 0 0 8px 8px;
     height: 9.2rem;
+    flex: unset;
   }
 
   .home-button {
-    margin-top: 12rem;
+    margin-top: 3rem;
   }
 
   .modal-total-amount-container {
     margin-left: 2.4rem;
     margin-top: 1.5rem;
     height: 9.2rem;
+    position: unset;
   }
 
   .cart-icon {
