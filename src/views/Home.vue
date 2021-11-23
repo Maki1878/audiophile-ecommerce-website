@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import SelectCategory from '@/components/SelectCategory.vue';
 import BestGear from '@/components/BestGear.vue';
 import Header from '@/components/layout/Header.vue';
@@ -98,6 +99,13 @@ export default {
     earphonesImage() {
       return `/assets/home/${this.screen}/image-earphones-yx1.jpg`;
     },
+  },
+  methods: {
+    ...mapActions(['getCartItems', 'emptyCart']),
+  },
+  created() {
+    this.emptyCart();
+    this.getCartItems();
   },
 };
 </script>

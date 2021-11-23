@@ -7,6 +7,10 @@ export default {
     };
   },
   actions: {
+    getCartItems({ commit }) {
+      let items = { ...localStorage };
+      commit('setCartItems', items);
+    },
     addProductToCart({ commit, state }, product) {
       const newProduct = {
         name: product.shortName,
@@ -17,9 +21,12 @@ export default {
       };
       const cartItem = state.cart.find((item) => item.name === newProduct.name);
       if (!cartItem) {
+        localStorage.setItem(`${newProduct.name}`, JSON.stringify(newProduct));
         commit('pushProductToCart', newProduct);
         commit('resetQuantity');
       } else {
+        localStorage.removeItem(`${cartItem.name}`);
+
         commit('incrementItemQuantity', cartItem);
         commit('resetQuantity');
       }
@@ -35,15 +42,21 @@ export default {
     },
     incrementCartItemQuantity({ commit, state }, product) {
       const cartItem = state.cart.find((item) => item.name === product.name);
+      localStorage.removeItem(`${cartItem.name}`);
       commit('incrementCartItemQuantity', cartItem);
     },
     decrementCartItemQuantity({ commit, state }, product) {
       const cartItem = state.cart.find((item) => item.name === product.name);
       if (cartItem.quantity === 1) {
+        localStorage.removeItem(`${cartItem.name}`);
         commit('removeItemFromCart', cartItem);
       } else {
+        localStorage.removeItem(`${cartItem.name}`);
         commit('decrementCartItemQuantity', cartItem);
       }
+    },
+    clearLocalStorage() {
+      localStorage.clear();
     },
   },
   mutations: {
@@ -64,18 +77,28 @@ export default {
     },
     incrementItemQuantity(state, product) {
       product.quantity += state.itemQuantity;
+      localStorage.setItem(`${product.name}`, JSON.stringify(product));
     },
     incrementCartItemQuantity(state, item) {
       item.quantity++;
+      localStorage.setItem(`${item.name}`, JSON.stringify(item));
     },
     decrementCartItemQuantity(state, item) {
       item.quantity--;
+      localStorage.setItem(`${item.name}`, JSON.stringify(item));
     },
     removeAllItemsFromCart(state) {
       state.cart = [];
     },
     removeItemFromCart(state, cartItem) {
       state.cart = state.cart.filter((item) => item.name !== cartItem.name);
+    },
+    setCartItems(state, items) {
+      for (var a in items) {
+        if (a !== 'loglevel:webpack-dev-server') {
+          state.cart.push(JSON.parse(items[a]));
+        }
+      }
     },
   },
   getters: {

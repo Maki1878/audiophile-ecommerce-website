@@ -4,7 +4,7 @@
     <dialog open class="modal">
       <div class="modal-header">
         <h6>CART ({{ cartItemsQuantity }})</h6>
-        <span @click="emptyCart" class="modal-remove-btn">Remove all</span>
+        <span @click="clearCart" class="modal-remove-btn">Remove all</span>
       </div>
       <CartItem
         v-for="item in cartItems"
@@ -56,7 +56,16 @@ export default {
     },
   },
   methods: {
-    ...mapActions(['emptyCart', 'incrementCartItemQuantity', 'decrementCartItemQuantity']),
+    ...mapActions([
+      'emptyCart',
+      'incrementCartItemQuantity',
+      'decrementCartItemQuantity',
+      'clearLocalStorage',
+    ]),
+    clearCart() {
+      this.clearLocalStorage();
+      this.emptyCart();
+    },
   },
 };
 </script>

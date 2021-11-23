@@ -62,10 +62,12 @@ export default {
     },
   },
   methods: {
-    ...mapActions(['getProducts']),
+    ...mapActions(['getProducts', 'getCartItems', 'emptyCart']),
   },
   created() {
     this.getProducts();
+    this.emptyCart();
+    this.getCartItems();
   },
 };
 </script>

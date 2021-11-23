@@ -119,6 +119,8 @@ export default {
       'decrementItemQuantity',
       'incrementCartItemQuantity',
       'decrementCartItemQuantity',
+      'getCartItems',
+      'emptyCart',
     ]),
     closeModal() {
       this.showModal = false;
@@ -127,6 +129,10 @@ export default {
       this.addProductToCart(this.product);
       this.showModal = true;
     },
+  },
+  created() {
+    this.emptyCart();
+    this.getCartItems();
   },
 };
 </script>

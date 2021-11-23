@@ -172,6 +172,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import Summary from '@/components/Summary.vue';
 import ConfirmationModal from '@/components/ConfirmationModal.vue';
 import Header from '@/components/layout/Header.vue';
@@ -238,6 +239,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(['getCartItems', 'emptyCart']),
     submitForm() {
       this.validateForm();
       if (!this.formIsValid) {
@@ -299,6 +301,10 @@ export default {
         this.validateEMoney();
       }
     },
+  },
+  created() {
+    this.emptyCart();
+    this.getCartItems();
   },
 };
 </script>
