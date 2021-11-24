@@ -12,14 +12,27 @@
             <div class="billing-details">
               <p class="subtitle">BILLING DETAILS</p>
               <div class="billing-name-email">
-                <div class="billing-name form-input" :class="{ invalid: !name.isValid }">
+                <div
+                  class="billing-name form-input"
+                  :class="{ invalid: !name.isValid, active: name.isActive }"
+                >
                   <div class="d-flex">
                     <label for="name">Name</label>
                     <span v-if="!name.isValid">Wrong format</span>
                   </div>
-                  <input type="text" id="name" placeholder="Alexei Ward" v-model.trim="name.val" />
+                  <input
+                    type="text"
+                    id="name"
+                    placeholder="Alexei Ward"
+                    v-model.trim="name.val"
+                    @focus="name.isActive = true"
+                    @blur="name.isActive = false"
+                  />
                 </div>
-                <div class="billing-email form-input" :class="{ invalid: !email.isValid }">
+                <div
+                  class="billing-email form-input"
+                  :class="{ invalid: !email.isValid, active: email.isActive }"
+                >
                   <div class="d-flex">
                     <label for="email">Email Address</label>
                     <span v-if="!email.isValid">Wrong format</span>
@@ -29,12 +42,14 @@
                     id="email"
                     placeholder="alexei@mail.com"
                     v-model.trim="email.val"
+                    @focus="email.isActive = true"
+                    @blur="email.isActive = false"
                   />
                 </div>
               </div>
               <div
                 class="billing-phone-number form-input"
-                :class="{ invalid: !phoneNumber.isValid }"
+                :class="{ invalid: !phoneNumber.isValid, active: phoneNumber.isActive }"
               >
                 <div class="d-flex">
                   <label for="phone-number">Phone Number</label>
@@ -45,12 +60,17 @@
                   id="phone-number"
                   placeholder="38763444555"
                   v-model.trim="phoneNumber.val"
+                  @focus="phoneNumber.isActive = true"
+                  @blur="phoneNumber.isActive = false"
                 />
               </div>
             </div>
             <div class="shipping-info form-input">
               <p class="subtitle">SHIPPING INFO</p>
-              <div class="shipping-address" :class="{ invalid: !address.isValid }">
+              <div
+                class="shipping-address"
+                :class="{ invalid: !address.isValid, active: address.isActive }"
+              >
                 <div class="d-flex">
                   <label for="address">Address</label>
                   <span v-if="!address.isValid">Wrong format</span>
@@ -61,10 +81,15 @@
                   placeholder="1137 Williams Avenue"
                   class="address-input"
                   v-model.trim="address.val"
+                  @focus="address.isActive = true"
+                  @blur="address.isActive = false"
                 />
               </div>
               <div class="shipping-zip-code-city">
-                <div class="shipping-zip-code form-input" :class="{ invalid: !zipCode.isValid }">
+                <div
+                  class="shipping-zip-code form-input"
+                  :class="{ invalid: !zipCode.isValid, active: zipCode.isActive }"
+                >
                   <div class="d-flex">
                     <label for="zip-code">ZIP Code</label>
                     <span v-if="!zipCode.isValid">Wrong format</span>
@@ -74,17 +99,32 @@
                     id="zip-code"
                     placeholder="10001"
                     v-model.number="zipCode.val"
+                    @focus="zipCode.isActive = true"
+                    @blur="zipCode.isActive = false"
                   />
                 </div>
-                <div class="shipping-city form-input" :class="{ invalid: !city.isValid }">
+                <div
+                  class="shipping-city form-input"
+                  :class="{ invalid: !city.isValid, active: city.isActive }"
+                >
                   <div class="d-flex">
                     <label for="city">City</label>
                     <span v-if="!city.isValid">Wrong format</span>
                   </div>
-                  <input type="text" id="city" placeholder="New York" v-model.trim="city.val" />
+                  <input
+                    type="text"
+                    id="city"
+                    placeholder="New York"
+                    v-model.trim="city.val"
+                    @focus="city.isActive = true"
+                    @blur="city.isActive = false"
+                  />
                 </div>
               </div>
-              <div class="shipping-country form-input" :class="{ invalid: !country.isValid }">
+              <div
+                class="shipping-country form-input"
+                :class="{ invalid: !country.isValid, active: country.isActive }"
+              >
                 <div class="d-flex">
                   <label for="country">Country</label>
                   <span v-if="!country.isValid">Wrong format</span>
@@ -94,6 +134,8 @@
                   id="country"
                   placeholder="United States"
                   v-model.trim="country.val"
+                  @focus="country.isActive = true"
+                  @blur="country.isActive = false"
                 />
               </div>
             </div>
@@ -101,8 +143,8 @@
               <p class="subtitle">Payment DETAILS</p>
               <div class="payment-method">
                 <label class="payment-method-title">Payment Method</label>
-                <div class="radio-buttons" :class="{ unselected: !payment.isValid }">
-                  <div class="radio-button">
+                <div class="radio-buttons">
+                  <div class="radio-button" :class="{ active: emoney }">
                     <input
                       type="radio"
                       id="e-money"
@@ -110,10 +152,12 @@
                       value="e-money"
                       class="radio-input"
                       v-model="payment.val"
+                      @click="emoney = true"
+                      checked
                     />
                     <label for="e-money" class="payment-option">e-Money</label>
                   </div>
-                  <div class="radio-button">
+                  <div class="radio-button" :class="{ active: !emoney }">
                     <input
                       type="radio"
                       id="cash"
@@ -121,12 +165,13 @@
                       value="cash"
                       class="radio-input"
                       v-model="payment.val"
+                      @click="emoney = false"
                     />
                     <label for="cash" class="payment-option">Cash on delivery</label>
                   </div>
                 </div>
               </div>
-              <div class="cash-delivery-description" v-if="showCashDeliveryDescription">
+              <div class="cash-delivery-description" v-if="!emoney">
                 <div>
                   <img :src="cartIconPath" class="cash-delivery-icon" alt="cash-delivery-icon" />
                 </div>
@@ -136,8 +181,11 @@
                   order will not be cancelled.
                 </p>
               </div>
-              <div class="emoney-info">
-                <div class="emoney-number form-input" :class="{ invalid: !emoneyNumber.isValid }">
+              <div class="emoney-info" v-if="emoney">
+                <div
+                  class="emoney-number form-input"
+                  :class="{ invalid: !emoneyNumber.isValid, active: emoneyNumber.isActive }"
+                >
                   <div class="d-flex">
                     <label for="emoney-number">e-Money Number</label>
                     <span v-if="!emoneyNumber.isValid">Wrong format</span>
@@ -147,9 +195,14 @@
                     id="emoney-number"
                     placeholder="238521993"
                     v-model.number="emoneyNumber.val"
+                    @focus="emoneyNumber.isActive = true"
+                    @blur="emoneyNumber.isActive = false"
                   />
                 </div>
-                <div class="emoney-pin form-input" :class="{ invalid: !emoneyPin.isValid }">
+                <div
+                  class="emoney-pin form-input"
+                  :class="{ invalid: !emoneyPin.isValid, active: emoneyPin.isActive }"
+                >
                   <div class="d-flex">
                     <label for="emoney-pin">e-Money PIN</label>
                     <span v-if="!emoneyPin.isValid">Wrong format</span>
@@ -159,6 +212,8 @@
                     id="emoney-pin"
                     placeholder="6891"
                     v-model.number="emoneyPin.val"
+                    @focus="emoneyPin.isActive = true"
+                    @blur="emoneyPin.isActive = false"
                   />
                 </div>
               </div>
@@ -186,55 +241,63 @@ export default {
   data() {
     return {
       showConfirmationModal: false,
+      emoney: true,
+
       cartIconPath: '/assets/shared/desktop/icon-cart.svg',
       name: {
         val: '',
         isValid: true,
+        isActive: false,
       },
       email: {
         val: '',
         isValid: true,
+        isActive: false,
       },
       phoneNumber: {
         val: '',
         isValid: true,
+        isActive: false,
       },
       address: {
         val: '',
         isValid: true,
+        isActive: false,
       },
       zipCode: {
         val: null,
         isValid: true,
+        isActive: false,
       },
       city: {
         val: '',
         isValid: true,
+        isActive: false,
       },
       country: {
         val: '',
         isValid: true,
+        isActive: false,
       },
       payment: {
         val: null,
         isValid: true,
+        isActive: false,
       },
       emoneyNumber: {
         val: null,
         isValid: true,
+        isActive: false,
       },
       emoneyPin: {
         val: null,
         isValid: true,
+        isActive: false,
       },
       formIsValid: true,
     };
   },
-  computed: {
-    showCashDeliveryDescription() {
-      return this.payment.val === 'cash' ? true : false;
-    },
-  },
+
   methods: {
     ...mapActions(['getCartItems', 'emptyCart']),
     submitForm() {
@@ -244,18 +307,33 @@ export default {
       }
       this.showConfirmationModal = true;
     },
+    isValid() {
+      this.formIsValid = true;
+      this.name.isValid = true;
+      this.email.isValid = true;
+      this.phoneNumber.isValid = true;
+      this.address.isValid = true;
+      this.zipCode.isValid = true;
+      this.city.isValid = true;
+      this.country.isValid = true;
+      this.emoneyNumber.isValid = true;
+      this.emoneyPin.isValid = true;
+    },
     validateEMoney() {
       if (!this.emoneyNumber.val || this.emoneyNumber.val.toString().length !== 9) {
         this.emoneyNumber.isValid = false;
         this.formIsValid = false;
+        return;
       }
       if (!this.emoneyPin.val || this.emoneyPin.val.toString().length !== 4) {
         this.emoneyPin.isValid = false;
         this.formIsValid = false;
+        return;
       }
+      this.formIsValid = true;
     },
     validateForm() {
-      this.formIsValid = true;
+      this.isValid();
       if (this.name.val === '') {
         this.name.isValid = false;
         this.formIsValid = false;
@@ -290,11 +368,7 @@ export default {
         this.country.isValid = false;
         this.formIsValid = false;
       }
-      if (!this.payment.val) {
-        this.payment.isValid = false;
-        this.formIsValid = false;
-      }
-      if (this.payment.val === 'e-money') {
+      if (this.emoney) {
         this.validateEMoney();
       }
     },
@@ -400,6 +474,7 @@ input {
 .cash-delivery-description {
   display: flex;
   gap: 2rem;
+  margin-top: 3rem;
 }
 
 .cash-delivery-icon {
@@ -418,6 +493,7 @@ input {
 .d-flex {
   display: flex;
   justify-content: space-between;
+  height: 2rem;
 }
 
 .invalid label,
@@ -425,13 +501,14 @@ input {
   color: #cd2c2c;
 }
 
-.invalid input,
-.invalid .radio-button {
+.invalid input {
   border: 2px solid #cd2c2c;
 }
 
-.unselected .radio-button {
-  border: 2px solid #cd2c2c;
+.active input,
+.radio-button.active {
+  outline: 0;
+  border: 2px solid var(--color-orange-dark);
 }
 
 label {
