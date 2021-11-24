@@ -15,7 +15,7 @@ button {
   border: none;
   margin-top: 7.9rem;
   cursor: pointer;
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 @media (max-width: 52em) {

@@ -130,7 +130,7 @@ export default {
 }
 
 .modal-info {
-  opacity: 50%;
+  opacity: 0.5;
   margin-top: 2.4rem;
   margin-bottom: 3.3rem;
 }
@@ -170,7 +170,7 @@ export default {
 .modal-total-other-items {
   text-align: center;
   font-weight: var(--font-bold);
-  opacity: 50%;
+  opacity: 0.5;
   font-size: 12px;
   line-height: 16px;
   border-top: 1px solid rgba(0, 0, 0, 0.08);
@@ -197,7 +197,7 @@ export default {
 }
 
 .grand-total-title {
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 .modal-total-item-quantity {

@@ -150,7 +150,7 @@ export default {
 }
 
 .home-header-product-description {
-  opacity: 75%;
+  opacity: 0.75;
   width: 34.9rem;
 }
 

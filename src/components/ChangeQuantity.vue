@@ -45,7 +45,7 @@ button {
 }
 
 .operator {
-  opacity: 25%;
+  opacity: 0.25;
 }
 
 button {

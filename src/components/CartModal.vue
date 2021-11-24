@@ -109,12 +109,12 @@ export default {
 }
 
 .modal-total-title {
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 .modal-remove-btn {
   cursor: pointer;
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 .modal-remove-btn:hover {
@@ -147,7 +147,7 @@ export default {
 }
 
 .change-quantity-operator {
-  opacity: 25%;
+  opacity: 0.25;
 }
 
 .change-quantity-operator {
